@@ -8,7 +8,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
+
 public class Users {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsers;
@@ -32,6 +34,12 @@ public class Users {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "users_id")
     private List<Role> roles;
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "users_id")
+    private List<Forum> foros;
+
 
     public Users() {
     }
