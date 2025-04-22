@@ -17,28 +17,27 @@ public class SuporteController {
     @Autowired
     private SuporteServiceImplement suporteService;
 
-    // Crear un nuevo suporte
+
     @PostMapping
     public ResponseEntity<Suporte> createSuporte(@RequestBody SuporteDTO suporteDTO) {
         Suporte suporte = suporteService.save(suporteDTO);
         return ResponseEntity.ok(suporte);
     }
 
-    // Obtener la lista de todos los suportes
+
     @GetMapping
     public ResponseEntity<List<Suporte>> getAllSuportes() {
         List<Suporte> suportes = suporteService.findAll();
         return ResponseEntity.ok(suportes);
     }
 
-    // Obtener un suporte por ID
     @GetMapping("/{id}")
     public ResponseEntity<Suporte> getSuporteById(@PathVariable Long id) {
         Optional<Suporte> suporte = suporteService.findById(id);
         return suporte.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // Actualizar un suporte existente
+
     @PutMapping("/{id}")
     public ResponseEntity<Suporte> updateSuporte(@PathVariable Long id, @RequestBody SuporteDTO suporteDTO) {
         Optional<Suporte> optionalSuporte = suporteService.findById(id);
@@ -50,7 +49,7 @@ public class SuporteController {
         }
     }
 
-    // Eliminar un suporte por ID
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteSuporte(@PathVariable Long id) {
         if (suporteService.findById(id).isPresent()) {

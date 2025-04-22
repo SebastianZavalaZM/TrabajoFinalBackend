@@ -4,7 +4,7 @@ public class SuporteDTO {
     private String titulo;
     private String descripcion;
 
-    // Getters y Setters
+
     public String getTitulo() {
         return titulo;
     }

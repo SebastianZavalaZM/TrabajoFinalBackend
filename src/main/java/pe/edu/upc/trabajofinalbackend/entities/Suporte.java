@@ -13,7 +13,7 @@ public class Suporte {
     @Column(length = 2000)
     private String descripcion;
 
-    // Getters y setters
+
     public Long getId() {
         return id;
     }
