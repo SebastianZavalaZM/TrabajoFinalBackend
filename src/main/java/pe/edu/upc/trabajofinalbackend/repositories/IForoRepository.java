@@ -4,4 +4,3 @@ import pe.edu.upc.trabajofinalbackend.entities.Foro;
 
 public interface IForoRepository extends JpaRepository<Foro, Integer> {
 }
-
