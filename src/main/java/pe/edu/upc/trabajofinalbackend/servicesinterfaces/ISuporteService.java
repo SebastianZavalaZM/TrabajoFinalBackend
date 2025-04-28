@@ -8,9 +8,9 @@ import java.util.Optional;
 
 
 public interface ISuporteService {
-    Suporte save(SuporteDTO suporteDTO);
-    List<Suporte> findAll();
-    Optional<Suporte> findById(Long id);
-    Suporte update(Long id, SuporteDTO suporteDTO);
-    void deleteById(Long id);
+    List<Suporte> list();
+    void insertar(Suporte suporte);
+    Suporte listId(Long id);
+    void update(Suporte suporte);
+    void delete(Long id);
 }
