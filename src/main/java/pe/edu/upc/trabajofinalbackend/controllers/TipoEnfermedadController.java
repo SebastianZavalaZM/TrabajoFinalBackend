@@ -50,4 +50,22 @@ public class TipoEnfermedadController {
     public void eliminar(@PathVariable("id") int id) {
         tipoEnfermedadService.delete(id);
     }
+
+    // QUERY 1: BUSCAR TIPO DE ENFERMEDAD CUYO NOMBRE TENGA CIEERTA PALABRA
+    @GetMapping("/buscarPorNombre")
+    public List<TipoEnfermedadDTO> buscarPorNombre(@RequestParam String palabra) {
+        return tipoEnfermedadService.buscarPorNombreContiene(palabra)
+                .stream()
+                .map(t -> {
+                    ModelMapper modelMapper = new ModelMapper();
+                    return modelMapper.map(t, TipoEnfermedadDTO.class);
+                })
+                .collect(Collectors.toList());
+    }
+
+    // QUERY 2: CONTAR LOS TIPOS DE ENFERMEDADESS REGISTRADOSS
+    @GetMapping("/contar")
+    public Long contarTiposDeEnfermedad() {
+        return tipoEnfermedadService.contarTiposDeEnfermedad();
+    }
 }

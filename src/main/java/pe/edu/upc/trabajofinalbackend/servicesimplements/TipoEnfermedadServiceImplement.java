@@ -38,4 +38,16 @@ public class TipoEnfermedadServiceImplement implements ITipoEnfermedadService {
     public void delete(int id) {
         tR.deleteById(id);
     }
+
+    // QUERY 1
+    @Override
+    public List<TipoEnfermedad> buscarPorNombreContiene(String palabra) {
+        return tR.findByNombreContainingIgnoreCase(palabra);
+    }
+
+    //  QUERY 2
+    @Override
+    public Long contarTiposDeEnfermedad() {
+        return tR.count();
+    }
 }

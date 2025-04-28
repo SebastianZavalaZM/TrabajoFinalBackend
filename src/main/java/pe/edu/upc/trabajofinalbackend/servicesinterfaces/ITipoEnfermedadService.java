@@ -9,4 +9,8 @@ public interface ITipoEnfermedadService {
     public TipoEnfermedad listId(int id);
     public void update(TipoEnfermedad t);
     public void delete(int id);
+
+    //NUEVOS QUERIES
+    public List<TipoEnfermedad> buscarPorNombreContiene(String palabra);
+    public Long contarTiposDeEnfermedad();
 }
