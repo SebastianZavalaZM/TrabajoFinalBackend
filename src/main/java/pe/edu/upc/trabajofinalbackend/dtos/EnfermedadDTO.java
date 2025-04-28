@@ -1,3 +1,5 @@
+//Sirve para enviar y recibir los datos de una enfermedad, junto con su tipo de enfermedad.
+
 package pe.edu.upc.trabajofinalbackend.dtos;
 
 import pe.edu.upc.trabajofinalbackend.entities.TipoEnfermedad;

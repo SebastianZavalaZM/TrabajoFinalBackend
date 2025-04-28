@@ -1,3 +1,5 @@
+//Este es el archivo que expone los botones de Swagger para crear, listar, buscar, actualizar, eliminar, buscar por palabra y contar tipos de enfermedad.
+
 package pe.edu.upc.trabajofinalbackend.controllers;
 
 import org.modelmapper.ModelMapper;

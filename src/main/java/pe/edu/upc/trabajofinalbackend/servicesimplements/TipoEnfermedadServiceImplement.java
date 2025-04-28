@@ -1,3 +1,5 @@
+//Aqui programamos como se hacen realmente las operaciones que definimos en el service interface: conecta la logica con el repositorio.
+
 package pe.edu.upc.trabajofinalbackend.servicesimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;

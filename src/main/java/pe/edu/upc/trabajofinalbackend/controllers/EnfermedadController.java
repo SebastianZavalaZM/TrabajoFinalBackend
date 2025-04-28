@@ -1,3 +1,5 @@
+//Este archivo expone los botones en Swagger para registrar, listar, buscar por id, modificar y eliminar enfermedades.
+
 package pe.edu.upc.trabajofinalbackend.controllers;
 
 import org.modelmapper.ModelMapper;

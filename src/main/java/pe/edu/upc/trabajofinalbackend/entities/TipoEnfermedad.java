@@ -1,3 +1,5 @@
+//Esta clase representa la tabla tipo_enfermedad en la base de datos. Guarda el id, el nombre, la descripcion y la lista de enfermedades asociadas.
+
 package pe.edu.upc.trabajofinalbackend.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

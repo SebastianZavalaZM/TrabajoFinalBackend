@@ -1,3 +1,5 @@
+//Este archivo define que operaciones se pueden hacer con tipos de enfermedad: listar, buscar, registrar, modificar, eliminar, buscar por palabra y contar.
+
 package pe.edu.upc.trabajofinalbackend.servicesinterfaces;
 
 import pe.edu.upc.trabajofinalbackend.entities.TipoEnfermedad;

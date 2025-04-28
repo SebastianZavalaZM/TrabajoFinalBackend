@@ -1,3 +1,6 @@
+//Es el archivo que sirve para enviar y recibir solo los datos necesarios de un tipo de enfermedad. No incluye la lista de enfermedades.
+
+
 package pe.edu.upc.trabajofinalbackend.dtos;
 
 public class TipoEnfermedadDTO {
