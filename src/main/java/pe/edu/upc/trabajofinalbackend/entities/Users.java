@@ -1,20 +1,16 @@
 package pe.edu.upc.trabajofinalbackend.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
-import java.util.List;
+
 
 @Entity
 @Table(name = "users")
-
 public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsers;
-
     @Column(name = "Name", nullable = false,length = 150)
     private String name;
     @Column(name = "correo",nullable = false,length = 150)
@@ -30,19 +26,9 @@ public class Users {
     @Column(name = "LatitudUsuario",nullable = false)
     private double latitudUsuario;
 
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "users_id")
-    private List<Role> roles;
-
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "users_id")
-    private List<Forum> foros;
-
-
     public Users() {
     }
+
     public Users(int idUsers, String name, String correo, String password, LocalDate fecharegistro, String ubicacion, double longitudUsuario, double latitudUsuario) {
         this.idUsers = idUsers;
         this.name = name;

@@ -15,4 +15,6 @@ public interface ICommentForumService {
     void update(CommentForum c);
 
     void delete(int id);
+
+    List<CommentForum> buscar(String nombre);
 }

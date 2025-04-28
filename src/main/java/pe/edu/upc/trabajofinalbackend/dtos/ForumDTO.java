@@ -1,10 +1,7 @@
 package pe.edu.upc.trabajofinalbackend.dtos;
 
 import java.time.LocalDate;
-import java.util.List;
 
-import jakarta.persistence.*;
-import pe.edu.upc.trabajofinalbackend.entities.CommentForum;
 import pe.edu.upc.trabajofinalbackend.entities.Users;
 
 public class ForumDTO {

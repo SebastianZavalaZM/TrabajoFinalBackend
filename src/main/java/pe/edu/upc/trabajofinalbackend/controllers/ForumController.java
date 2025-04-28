@@ -7,6 +7,7 @@ import pe.edu.upc.trabajofinalbackend.dtos.ForumDTO;
 import pe.edu.upc.trabajofinalbackend.entities.Forum;
 import pe.edu.upc.trabajofinalbackend.servicesinterfaces.IForumService;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,14 +29,14 @@ public class ForumController {
     @PostMapping("/Registrar")
     public void insertar(@RequestBody ForumDTO dto) {
         ModelMapper m = new ModelMapper();
-        Forum forum = m.map(dto, Forum.class);
-        fS.insert(forum);
+        Forum f = m.map(dto, Forum.class);
+        fS.insert(f);
     }
 
     @GetMapping("/{id}")
     public ForumDTO buscar(@PathVariable("id") int id) {
         ModelMapper m = new ModelMapper();
-        ForumDTO dto = m.map(fS.list(id), ForumDTO.class);
+        ForumDTO dto = m.map(fS.listId(id), ForumDTO.class);
         return dto;
     }
 
@@ -45,6 +46,15 @@ public class ForumController {
         Forum forum = m.map(dto, Forum.class);
         fS.update(forum);
     }
+
+    @GetMapping("/ListarPorPeriodo")
+    public List<ForumDTO> buscarPorPerido(@RequestParam LocalDate fechaInicio, @RequestParam LocalDate fechaFin){
+        return fS.buscar(fechaInicio, fechaFin).stream().map(z->{
+            ModelMapper m = new ModelMapper();
+            return m.map(z, ForumDTO.class);
+        }).collect(Collectors.toList());
+    }
+
 
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") int id) {

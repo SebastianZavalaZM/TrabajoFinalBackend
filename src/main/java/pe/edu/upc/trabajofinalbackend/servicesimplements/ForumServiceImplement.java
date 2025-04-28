@@ -6,6 +6,7 @@ import pe.edu.upc.trabajofinalbackend.entities.Forum;
 import pe.edu.upc.trabajofinalbackend.repositories.IForumRepository;
 import pe.edu.upc.trabajofinalbackend.servicesinterfaces.IForumService;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -15,18 +16,23 @@ public class ForumServiceImplement implements IForumService {
     private IForumRepository forumRepository;
 
     @Override
-    public void insert(Forum f) { forumRepository.save(f); }
-
-    @Override
     public List<Forum> list() { return forumRepository.findAll(); }
 
     @Override
-    public Forum list(int id) { return forumRepository.findById(id).orElse(new Forum()); }
+    public void insert(Forum f) { forumRepository.save(f); }
+
+    @Override
+    public Forum listId(int id) { return forumRepository.findById(id).orElse(new Forum()); }
 
     @Override
     public void update(Forum f) { forumRepository.save(f); }
 
     @Override
     public void delete(int id) { forumRepository.deleteById(id); }
+
+    @Override
+    public List<Forum> buscar(LocalDate fechaInicio, LocalDate fechaFin) { return forumRepository.buscarPorPeriodo(fechaInicio, fechaFin); }
+
+
 
 }

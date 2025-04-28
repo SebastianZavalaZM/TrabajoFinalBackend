@@ -55,4 +55,12 @@ public class CommentForumController {
     public void eliminar(@PathVariable("id") int id) {
         cS.delete(id);
     }
+
+    @GetMapping("/buscarPorForo")
+    public List<CommentForumDTO> buscarPorForo(@RequestParam String foro){
+        return cS.buscar(foro).stream().map(z->{
+            ModelMapper m = new ModelMapper();
+            return m.map(z, CommentForumDTO.class);
+        }).collect(Collectors.toList());
+    }
 }

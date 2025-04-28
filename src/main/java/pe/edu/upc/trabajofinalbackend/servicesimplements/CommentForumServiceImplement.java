@@ -29,4 +29,9 @@ public class CommentForumServiceImplement implements ICommentForumService {
     @Override
     public void delete(int id) { cR.deleteById(id); }
 
+    @Override
+    public List<CommentForum> buscar(String nombre) {
+        return cR.buscarForo(nombre);
+    }
+
 }
