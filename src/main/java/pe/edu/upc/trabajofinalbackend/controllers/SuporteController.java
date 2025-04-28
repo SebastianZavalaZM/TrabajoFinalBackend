@@ -2,16 +2,15 @@ package pe.edu.upc.trabajofinalbackend.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.trabajofinalbackend.dtos.SuporteDTO;
 import pe.edu.upc.trabajofinalbackend.entities.Suporte;
-import pe.edu.upc.trabajofinalbackend.servicesimplements.SuporteServiceImplement;
+
 import pe.edu.upc.trabajofinalbackend.servicesinterfaces.ISuporteService;
 
 
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -55,5 +54,24 @@ public class SuporteController {
     public void eliminar(@PathVariable("id") Long id) {
         suporteService.delete(id);
     }
+    @GetMapping("/buscar-fechas")
+    public List<SuporteDTO> buscarPorFechas(@RequestParam String startDate, @RequestParam String endDate) {
+        LocalDate start = LocalDate.parse(startDate);
+        LocalDate end = LocalDate.parse(endDate);
+
+        return suporteService.buscarPorRangoDeFechas(start, end).stream().map(suporte -> {
+            ModelMapper modelMapper = new ModelMapper();
+            return modelMapper.map(suporte, SuporteDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/buscar-usuario")
+    public List<SuporteDTO> buscarPorUsuario(@RequestParam Long idUsuario) {
+        return suporteService.buscarPorUsuarioId(idUsuario).stream().map(suporte -> {
+            ModelMapper modelMapper = new ModelMapper();
+            return modelMapper.map(suporte, SuporteDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+
 }
 

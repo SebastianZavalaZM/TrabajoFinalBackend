@@ -2,13 +2,12 @@ package pe.edu.upc.trabajofinalbackend.servicesimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upc.trabajofinalbackend.dtos.SuporteDTO;
 import pe.edu.upc.trabajofinalbackend.entities.Suporte;
 import pe.edu.upc.trabajofinalbackend.repositories.ISuporteRepository;
 import pe.edu.upc.trabajofinalbackend.servicesinterfaces.ISuporteService;
 
 import java.util.List;
-import java.util.Optional;
+import java.time.LocalDate;
 
 @Service
 public class SuporteServiceImplement implements ISuporteService {
@@ -40,6 +39,17 @@ public class SuporteServiceImplement implements ISuporteService {
     public void delete(Long id) {
         suporteRepository.deleteById(id);
     }
+
+    @Override
+    public List<Suporte> buscarPorRangoDeFechas(LocalDate startDate, LocalDate endDate) {
+        return suporteRepository.findByFechaBetween(startDate, endDate);
+    }
+
+    @Override
+    public List<Suporte> buscarPorUsuarioId(Long idUsuario) {
+        return suporteRepository.findByUsuarioId(idUsuario);
+    }
+
 }
 
 
