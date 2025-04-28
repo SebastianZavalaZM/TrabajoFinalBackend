@@ -1,35 +1,36 @@
 package pe.edu.upc.trabajofinalbackend.entities;
-import jakarta.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "tipoenfermedad")
+@Table(name = "tipo_enfermedad")
 public class TipoEnfermedad {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTipo;
 
-    @Column(name = "nombre", length = 50, nullable = false)
+    @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
-    @Column(name = "descripcion", length = 2000, nullable = false)
+    @Column(name = "descripcion", nullable = false, length = 255)
     private String descripcion;
 
-    @ManyToOne
-    @JoinColumn(name = "idUsers")
-    private Users users;
+    @JsonIgnore
+    @OneToMany(mappedBy = "tipoEnfermedad", cascade = CascadeType.ALL)
+    private List<Enfermedad> enfermedades;
 
     public TipoEnfermedad() {
     }
 
-    public TipoEnfermedad(int idTipo, String nombre, String descripcion, Users users) {
+    public TipoEnfermedad(int idTipo, String nombre, String descripcion, List<Enfermedad> enfermedades) {
         this.idTipo = idTipo;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.users = users;
+        this.enfermedades = enfermedades;
     }
-
-    // Getters y Setters
 
     public int getIdTipo() {
         return idTipo;
@@ -55,11 +56,11 @@ public class TipoEnfermedad {
         this.descripcion = descripcion;
     }
 
-    public Users getUsers() {
-        return users;
+    public List<Enfermedad> getEnfermedades() {
+        return enfermedades;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setEnfermedades(List<Enfermedad> enfermedades) {
+        this.enfermedades = enfermedades;
     }
 }

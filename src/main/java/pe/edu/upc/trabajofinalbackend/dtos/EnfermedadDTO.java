@@ -1,38 +1,14 @@
-package pe.edu.upc.trabajofinalbackend.entities;
+package pe.edu.upc.trabajofinalbackend.dtos;
 
-import jakarta.persistence.*;
+import pe.edu.upc.trabajofinalbackend.entities.TipoEnfermedad;
 
-@Entity
-@Table(name = "enfermedad")
-public class Enfermedad {
+public class EnfermedadDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEnfermedad;
-
-    @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
-
-    @Column(name = "sintomas", nullable = false, length = 255)
     private String sintomas;
-
-    @Column(name = "nivel_riesgo", nullable = false, length = 20)
     private String nivelRiesgo;
-
-    @ManyToOne
-    @JoinColumn(name = "tipo_enfermedad_id")
     private TipoEnfermedad tipoEnfermedad;
-
-    public Enfermedad() {
-    }
-
-    public Enfermedad(int idEnfermedad, String nombre, String sintomas, String nivelRiesgo, TipoEnfermedad tipoEnfermedad) {
-        this.idEnfermedad = idEnfermedad;
-        this.nombre = nombre;
-        this.sintomas = sintomas;
-        this.nivelRiesgo = nivelRiesgo;
-        this.tipoEnfermedad = tipoEnfermedad;
-    }
 
     public int getIdEnfermedad() {
         return idEnfermedad;

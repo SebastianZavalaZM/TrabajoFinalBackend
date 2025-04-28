@@ -3,9 +3,7 @@ package pe.edu.upc.trabajofinalbackend.servicesimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.trabajofinalbackend.entities.Enfermedad;
-import pe.edu.upc.trabajofinalbackend.entities.TipoEnfermedad;
 import pe.edu.upc.trabajofinalbackend.repositories.IEnfermedadRepository;
-import pe.edu.upc.trabajofinalbackend.repositories.ITipoEnfermedadRepository;
 import pe.edu.upc.trabajofinalbackend.servicesinterfaces.IEnfermedadService;
 
 import java.util.List;
@@ -14,24 +12,30 @@ import java.util.List;
 public class EnfermedadServiceImplement implements IEnfermedadService {
 
     @Autowired
-    private IEnfermedadRepository enfermedadRepository;
-
-    @Autowired
-    private ITipoEnfermedadRepository tipoEnfermedadRepository;
+    private IEnfermedadRepository eR;
 
     @Override
-    public Enfermedad guardar(Enfermedad enfermedad) {
-        int idTipo = enfermedad.getTipoEnfermedad().getIdTipo();
-
-        TipoEnfermedad tipoCompleto = tipoEnfermedadRepository.findById(idTipo)
-                .orElseThrow(() -> new RuntimeException("TipoEnfermedad no encontrado con id " + idTipo));
-
-        enfermedad.setTipoEnfermedad(tipoCompleto);
-        return enfermedadRepository.save(enfermedad);
+    public List<Enfermedad> list() {
+        return eR.findAll();
     }
 
     @Override
-    public List<Enfermedad> listar() {
-        return enfermedadRepository.findAll();
+    public void insert(Enfermedad e) {
+        eR.save(e);
+    }
+
+    @Override
+    public Enfermedad listId(int id) {
+        return eR.findById(id).orElse(new Enfermedad());
+    }
+
+    @Override
+    public void update(Enfermedad e) {
+        eR.save(e);
+    }
+
+    @Override
+    public void delete(int id) {
+        eR.deleteById(id);
     }
 }

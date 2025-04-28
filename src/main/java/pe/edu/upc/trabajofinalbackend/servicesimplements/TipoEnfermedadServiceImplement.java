@@ -12,15 +12,30 @@ import java.util.List;
 public class TipoEnfermedadServiceImplement implements ITipoEnfermedadService {
 
     @Autowired
-    private ITipoEnfermedadRepository tipoEnfermedadRepository;
+    private ITipoEnfermedadRepository tR;
 
     @Override
-    public TipoEnfermedad guardar(TipoEnfermedad tipoEnfermedad) {
-        return tipoEnfermedadRepository.save(tipoEnfermedad);
+    public List<TipoEnfermedad> list() {
+        return tR.findAll();
     }
 
     @Override
-    public List<TipoEnfermedad> listar() {
-        return tipoEnfermedadRepository.findAll();
+    public void insert(TipoEnfermedad t) {
+        tR.save(t);
+    }
+
+    @Override
+    public TipoEnfermedad listId(int id) {
+        return tR.findById(id).orElse(new TipoEnfermedad());
+    }
+
+    @Override
+    public void update(TipoEnfermedad t) {
+        tR.save(t);
+    }
+
+    @Override
+    public void delete(int id) {
+        tR.deleteById(id);
     }
 }

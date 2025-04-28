@@ -4,6 +4,9 @@ import pe.edu.upc.trabajofinalbackend.entities.Enfermedad;
 import java.util.List;
 
 public interface IEnfermedadService {
-    Enfermedad guardar(Enfermedad enfermedad);
-    List<Enfermedad> listar();
+    public List<Enfermedad> list();
+    public void insert(Enfermedad e);
+    public Enfermedad listId(int id);
+    public void update(Enfermedad e);
+    public void delete(int id);
 }
