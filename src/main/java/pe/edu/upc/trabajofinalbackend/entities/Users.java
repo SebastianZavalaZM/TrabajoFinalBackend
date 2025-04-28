@@ -15,7 +15,7 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsers;
 
-    @Column(name = "Name", nullable = false,length = 150)
+    @Column(name = "Name", nullable = false,length = 150, unique = true)
     private String name;
     @Column(name = "correo",nullable = false,length = 150)
     private String correo;
@@ -35,14 +35,9 @@ public class Users {
     @JoinColumn(name = "users_id")
     private List<Role> roles;
 
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "users_id")
-    private List<Forum> foros;
-
-
     public Users() {
     }
+
     public Users(int idUsers, String name, String correo, String password, LocalDate fecharegistro, String ubicacion, double longitudUsuario, double latitudUsuario) {
         this.idUsers = idUsers;
         this.name = name;
