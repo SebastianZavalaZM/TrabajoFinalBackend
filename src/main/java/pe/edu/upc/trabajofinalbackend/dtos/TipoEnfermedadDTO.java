@@ -1,10 +1,14 @@
 package pe.edu.upc.trabajofinalbackend.dtos;
 
+import pe.edu.upc.trabajofinalbackend.entities.Enfermedad;
+import pe.edu.upc.trabajofinalbackend.entities.Users;
+
 public class TipoEnfermedadDTO {
 
     private int idTipo;
     private String nombre;
     private String descripcion;
+    private Users users;
 
     public int getIdTipo() {
         return idTipo;
@@ -28,5 +32,13 @@ public class TipoEnfermedadDTO {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

@@ -6,15 +6,15 @@ import java.util.List;
 
 public interface ICommentForumService {
 
-    List<CommentForum> list();
+    public List<CommentForum> list();
 
-    void insert(CommentForum c);
+    public void insert(CommentForum c);
 
-    CommentForum listId(int id);
+    public CommentForum listId(int id);
 
-    void update(CommentForum c);
+    public void update(CommentForum c);
 
-    void delete(int id);
+    public void delete(int id);
 
-    List<CommentForum> buscar(String nombre);
+    public List<CommentForum> buscar(String nombre);
 }

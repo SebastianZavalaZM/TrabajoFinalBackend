@@ -18,18 +18,18 @@ public class TipoEnfermedad {
     @Column(name = "descripcion", nullable = false, length = 255)
     private String descripcion;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "tipoEnfermedad", cascade = CascadeType.ALL)
-    private List<Enfermedad> enfermedades;
+    @ManyToOne
+    @JoinColumn(name = "idUsers")
+    private Users users;
 
     public TipoEnfermedad() {
     }
 
-    public TipoEnfermedad(int idTipo, String nombre, String descripcion, List<Enfermedad> enfermedades) {
+    public TipoEnfermedad(int idTipo, String nombre, String descripcion, Users users) {
         this.idTipo = idTipo;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.enfermedades = enfermedades;
+        this.users = users;
     }
 
     public int getIdTipo() {
@@ -56,11 +56,11 @@ public class TipoEnfermedad {
         this.descripcion = descripcion;
     }
 
-    public List<Enfermedad> getEnfermedades() {
-        return enfermedades;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setEnfermedades(List<Enfermedad> enfermedades) {
-        this.enfermedades = enfermedades;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

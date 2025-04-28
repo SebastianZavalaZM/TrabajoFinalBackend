@@ -54,6 +54,7 @@ public class SuporteController {
     public void eliminar(@PathVariable("id") Long id) {
         suporteService.delete(id);
     }
+
     @GetMapping("/buscar-fechas")
     public List<SuporteDTO> buscarPorFechas(@RequestParam String startDate, @RequestParam String endDate) {
         LocalDate start = LocalDate.parse(startDate);

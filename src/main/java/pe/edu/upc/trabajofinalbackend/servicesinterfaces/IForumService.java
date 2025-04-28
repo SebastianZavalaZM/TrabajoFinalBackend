@@ -6,10 +6,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface IForumService {
-    List<Forum> list();
-    void insert(Forum f);
-    Forum listId(int id);
-    void update(Forum f);
-    void delete(int id);
-    List<Forum> buscar(LocalDate fechaInicio, LocalDate fechaFin);
+    public List<Forum> list();
+    public void insert(Forum f);
+    public Forum listId(int id);
+    public void update(Forum f);
+    public void delete(int id);
+    public List<Forum> buscar(LocalDate fechaInicio, LocalDate fechaFin);
 }
