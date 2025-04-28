@@ -21,12 +21,12 @@ public class ForumServiceImplement implements IForumService {
     public List<Forum> list() { return forumRepository.findAll(); }
 
     @Override
-    public Forum list(Long id) { return forumRepository.findById(id).orElse(new Forum()); }
+    public Forum list(int id) { return forumRepository.findById(id).orElse(new Forum()); }
 
     @Override
     public void update(Forum f) { forumRepository.save(f); }
 
     @Override
-    public void delete(Long id) { forumRepository.deleteById(id); }
+    public void delete(int id) { forumRepository.deleteById(id); }
 
 }

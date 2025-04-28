@@ -7,6 +7,6 @@ import pe.edu.upc.trabajofinalbackend.entities.Forum;
 import java.util.List;
 
 @Repository
-public interface IForumRepository extends JpaRepository<Forum, Long> {
+public interface IForumRepository extends JpaRepository<Forum, Integer> {
 
 }

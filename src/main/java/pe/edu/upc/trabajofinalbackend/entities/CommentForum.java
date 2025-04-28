@@ -4,43 +4,73 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "comentariosforos", uniqueConstraints = {@UniqueConstraint(columnNames = {"users_id", "foros_id", "comentario"})})
+@Table(name = "comentariosforos")
 public class CommentForum {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "comentario", length = 100, nullable = false)
+    private String contenido;
+    @Column(name = "fechacomentario", nullable = false)
+    private LocalDate fechaComentario;
 
     @ManyToOne
-    @JoinColumn(name = "foros_id", nullable = false)
+    @JoinColumn(name = "idforum")
     private Forum forums;
 
     @ManyToOne
-    @JoinColumn(name = "users_id", nullable = false)
+    @JoinColumn(name = "users_id")
     private Users users;
 
+    public CommentForum() {
+    }
 
-    private String contenido;
+    public CommentForum(int id, String contenido, LocalDate fechaComentario, Forum forums, Users users) {
+        this.id = id;
+        this.contenido = contenido;
+        this.fechaComentario = fechaComentario;
+        this.forums = forums;
+        this.users = users;
+    }
 
-    private LocalDate fechaComentario;
+    public int getId() {
+        return id;
+    }
 
-    public int getId() { return id; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public void setId(int id) { this.id = id; }
+    public String getContenido() {
+        return contenido;
+    }
 
-    public Forum getForums() { return forums; }
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
 
-    public void setForums(Forum forums) { this.forums = forums; }
+    public LocalDate getFechaComentario() {
+        return fechaComentario;
+    }
 
-    public Users getUsers() { return users; }
+    public void setFechaComentario(LocalDate fechaComentario) {
+        this.fechaComentario = fechaComentario;
+    }
 
-    public void setUsers(Users users) { this.users = users; }
+    public Forum getForums() {
+        return forums;
+    }
 
-    public String getContenido() { return contenido; }
+    public void setForums(Forum forums) {
+        this.forums = forums;
+    }
 
-    public void setContenido(String contenido) { this.contenido = contenido; }
+    public Users getUsers() {
+        return users;
+    }
 
-    public LocalDate getFechaComentario() { return fechaComentario; }
-
-    public void setFechaComentario(LocalDate fechaComentario) { this.fechaComentario = fechaComentario; }
+    public void setUsers(Users users) {
+        this.users = users;
+    }
 }

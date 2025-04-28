@@ -10,9 +10,9 @@ public interface ICommentForumService {
 
     void insert(CommentForum c);
 
-    CommentForum listId(Long id);
+    CommentForum listId(int id);
 
     void update(CommentForum c);
 
-    void delete(Long id);
+    void delete(int id);
 }

@@ -11,9 +11,9 @@ public interface IForumService {
 
     List<Forum> list();
 
-    Forum list(Long id);
+    Forum list(int id);
 
     void update(Forum f);
 
-    void delete(Long id);
+    void delete(int id);
 }

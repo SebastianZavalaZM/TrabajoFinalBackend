@@ -18,7 +18,7 @@ public class CommentForumController {
     private ICommentForumService cS;
 
 
-    @GetMapping
+    @GetMapping("/Listar")
     public List<CommentForumDTO> listar() {
         return cS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -27,7 +27,7 @@ public class CommentForumController {
     }
 
 
-    @PostMapping
+    @PostMapping("/Registrar")
     public void insertar(@RequestBody CommentForumDTO dto) {
         ModelMapper m = new ModelMapper();
         CommentForum comment = m.map(dto, CommentForum.class);
@@ -36,14 +36,14 @@ public class CommentForumController {
 
 
     @GetMapping("/{id}")
-    public CommentForumDTO buscarId(@PathVariable("id") Long id) {
+    public CommentForumDTO buscarId(@PathVariable("id") int id) {
         ModelMapper m = new ModelMapper();
         CommentForumDTO dto = m.map(cS.listId(id), CommentForumDTO.class);
         return dto;
     }
 
 
-    @PutMapping
+    @PutMapping("/Modificar")
     public void modificar(@RequestBody CommentForumDTO dto) {
         ModelMapper m = new ModelMapper();
         CommentForum comment = m.map(dto, CommentForum.class);
@@ -52,7 +52,7 @@ public class CommentForumController {
 
 
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Long id) {
+    public void eliminar(@PathVariable("id") int id) {
         cS.delete(id);
     }
 }

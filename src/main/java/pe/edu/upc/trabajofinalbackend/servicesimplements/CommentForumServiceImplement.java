@@ -21,12 +21,12 @@ public class CommentForumServiceImplement implements ICommentForumService {
     public void insert(CommentForum c) { cR.save(c); }
 
     @Override
-    public CommentForum listId(Long id) { return cR.findById(id).orElse(new CommentForum()); }
+    public CommentForum listId(int id) { return cR.findById(id).orElse(new CommentForum()); }
 
     @Override
     public void update(CommentForum c) { cR.save(c); }
 
     @Override
-    public void delete(Long id) { cR.deleteById(id); }
+    public void delete(int id) { cR.deleteById(id); }
 
 }

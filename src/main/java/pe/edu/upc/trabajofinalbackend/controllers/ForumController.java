@@ -17,7 +17,7 @@ public class ForumController {
     @Autowired
     private IForumService fS;
 
-    @GetMapping
+    @GetMapping("/Listar")
     public List<ForumDTO> listar() {
         return fS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -25,7 +25,7 @@ public class ForumController {
         }).collect(Collectors.toList());
     }
 
-    @PostMapping
+    @PostMapping("/Registrar")
     public void insertar(@RequestBody ForumDTO dto) {
         ModelMapper m = new ModelMapper();
         Forum forum = m.map(dto, Forum.class);
@@ -33,13 +33,13 @@ public class ForumController {
     }
 
     @GetMapping("/{id}")
-    public ForumDTO buscar(@PathVariable("id") Long id) {
+    public ForumDTO buscar(@PathVariable("id") int id) {
         ModelMapper m = new ModelMapper();
         ForumDTO dto = m.map(fS.list(id), ForumDTO.class);
         return dto;
     }
 
-    @PutMapping
+    @PutMapping("/Modificar")
     public void modificar(@RequestBody ForumDTO dto) {
         ModelMapper m = new ModelMapper();
         Forum forum = m.map(dto, Forum.class);
@@ -47,7 +47,7 @@ public class ForumController {
     }
 
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Long id) {
+    public void eliminar(@PathVariable("id") int id) {
         fS.delete(id);
     }
 
