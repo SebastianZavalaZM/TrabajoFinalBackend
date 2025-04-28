@@ -1,6 +1,5 @@
 package pe.edu.upc.trabajofinalbackend.entities;
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 @Entity
@@ -16,7 +15,7 @@ public class Suporte {
     @Column(name = "fecha", nullable = false)
     private LocalDate fecha;
 
-    @Column(name = "titulo", length = 2000, nullable = false)
+    @Column(name = "descripcion", length = 2000, nullable = false)
     private String descripcion;
 
     @ManyToOne
@@ -71,6 +70,6 @@ public class Suporte {
     }
 
     public void setUsers(Users users) {
-        this.users = users;
-    }
+        this.users =users;
+}
 }

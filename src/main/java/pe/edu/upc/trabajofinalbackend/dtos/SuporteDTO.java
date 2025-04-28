@@ -1,7 +1,5 @@
 package pe.edu.upc.trabajofinalbackend.dtos;
-
 import pe.edu.upc.trabajofinalbackend.entities.Users;
-
 import java.time.LocalDate;
 
 public class SuporteDTO {
@@ -48,6 +46,6 @@ public class SuporteDTO {
     }
 
     public void setUsers(Users users) {
-        this.users = users;
-    }
+        this.users =users;
+}
 }
