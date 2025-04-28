@@ -19,7 +19,7 @@ public class UserServiceImplement implements IUserService {
     }
 
     @Override
-    public void insert(Users u) {uR.save(u);}
+    public void insert(Users u) { uR.save(u); }
 
     @Override
     public Users listId(int id) {
