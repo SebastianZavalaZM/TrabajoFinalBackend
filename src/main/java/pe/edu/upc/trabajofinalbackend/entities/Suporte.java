@@ -15,7 +15,7 @@ public class Suporte {
     @Column(name = "fecha", nullable = false)
     private LocalDate fecha;
 
-    @Column(name = "titulo", length = 2000, nullable = false)
+    @Column(name = "descripcion", length = 2000, nullable = false)
     private String descripcion;
 
     @ManyToOne
