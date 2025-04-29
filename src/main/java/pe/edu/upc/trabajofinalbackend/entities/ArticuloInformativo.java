@@ -12,17 +12,19 @@ public class ArticuloInformativo {
     private int idArticulo;
     @Column(name="titulo",nullable = false,length = 100)
     private String titulo;
-    @Column(name="contenido",nullable = false,length = 100)
+    @Column(name="contenido",nullable = false,length = 2000)
     private String contenido;
     @Column(name="fechaPublicacion",nullable = false,length = 100)
     private LocalDate fechaPublicacion;
     @Column(name="fuente",nullable = false,length = 100)
     private String fuente;
-    @Column(name="usuarioid",nullable = false,length = 100)
+    //IGNORAR
+    @Column(name="usuarioid",length = 100)
     private String users_id;
 
     public ArticuloInformativo(){}
 
+    //USAR ESTE user_id PARA EL USUARIO QUE CREA EL ARTICULO
     @ManyToOne
     @JoinColumn(name="users_id")
     private Users users;

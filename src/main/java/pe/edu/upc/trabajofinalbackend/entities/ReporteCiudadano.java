@@ -15,11 +15,12 @@ public class ReporteCiudadano {
     private LocalDate fechaReporte;
     @Column(name="cuidad",nullable = false,length = 100)
     private String cuidad;
-    @Column(name="usuarioid",nullable = false,length = 100)
+    //IGNORAR
+    @Column(name="usuarioid",length = 100)
     private String users_id;
 
     public ReporteCiudadano(){}
-
+    //USAR ESTE user_id PARA EL FK
     @ManyToOne
     @JoinColumn(name="users_id")
     private Users users;

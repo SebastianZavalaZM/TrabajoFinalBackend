@@ -10,7 +10,7 @@ public class CommentForum {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "comentario", length = 100, nullable = false)
+    @Column(name = "comentario", length = 1000, nullable = false)
     private String contenido;
     @Column(name = "fechacomentario", nullable = false)
     private LocalDate fechaComentario;

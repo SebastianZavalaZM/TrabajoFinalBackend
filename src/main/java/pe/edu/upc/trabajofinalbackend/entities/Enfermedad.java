@@ -13,7 +13,7 @@ public class Enfermedad {
     @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
-    @Column(name = "sintomas", nullable = false, length = 255)
+    @Column(name = "sintomas", nullable = false, length = 200)
     private String sintomas;
 
     @Column(name = "nivel_riesgo", nullable = false, length = 20)
