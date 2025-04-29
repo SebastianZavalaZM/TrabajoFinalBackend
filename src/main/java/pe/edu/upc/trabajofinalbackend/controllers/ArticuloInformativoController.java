@@ -44,8 +44,8 @@ public class ArticuloInformativoController {
         ArticuloInformativo ae  = m.map(dto, ArticuloInformativo.class);
         aS.update(ae);
     }
-    @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") int id){
-        aS.delete(id);
-    }
+    //@DeleteMapping("/{id}")
+    //public void eliminar(@PathVariable("id") int id){
+      //  aS.delete(id);
+    //}
 }
