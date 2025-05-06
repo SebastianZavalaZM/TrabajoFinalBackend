@@ -1,7 +1,6 @@
 package pe.edu.upc.trabajofinalbackend.servicesinterfaces;
 
 import pe.edu.upc.trabajofinalbackend.entities.Forum;
-import pe.edu.upc.trabajofinalbackend.entities.Users;
 
 import java.time.LocalDate;
 import java.util.List;

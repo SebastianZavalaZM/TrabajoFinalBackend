@@ -16,4 +16,11 @@ public interface IForumRepository extends JpaRepository<Forum, Integer> {
     @Query("Select f from Forum f where f.fechacreacion between :fechaInicio and :fechaFin")
     public List<Forum> buscarPorPeriodo(@Param("fechaInicio") LocalDate fechaInicio, @Param("fechaFin") LocalDate fechaFin);
 
+
+    @Query(value = "SELECT f.idforum AS idforum, f.titulo AS titulo, COUNT(DISTINCT c.users_id) AS cantidadUsuarios\n" +
+            "        FROM foros f\n" +
+            "        LEFT JOIN comentariosforos c ON f.idforum = c.idforum\n" +
+            "        GROUP BY f.idforum, f.titulo\n" +
+            "        ORDER BY f.idforum", nativeQuery = true)
+    List<Object[]> obtenerCantidadUsuariosPorForo();
 }

@@ -33,6 +33,4 @@ public class ForumServiceImplement implements IForumService {
     @Override
     public List<Forum> buscar(LocalDate fechaInicio, LocalDate fechaFin) { return forumRepository.buscarPorPeriodo(fechaInicio, fechaFin); }
 
-
-
 }
