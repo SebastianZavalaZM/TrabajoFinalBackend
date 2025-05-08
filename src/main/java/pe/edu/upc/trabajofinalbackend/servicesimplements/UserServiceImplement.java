@@ -34,4 +34,14 @@ public class UserServiceImplement implements IUserService {
     @Override
     public void delete(int id) { uR.deleteById(id); }
 
+    @Override
+    public List<String[]> estadisticasporusuariocalor() {
+        return uR.estadisticasporusuariocalor();
+    }
+
+    @Override
+    public List<String[]> distribuciondesuscriptoresuruario() {
+        return uR.distribuciondesuscriptoresuruario();
+    }
+
 }

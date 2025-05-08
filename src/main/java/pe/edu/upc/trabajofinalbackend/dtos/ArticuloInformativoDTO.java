@@ -1,5 +1,7 @@
 package pe.edu.upc.trabajofinalbackend.dtos;
 
+import pe.edu.upc.trabajofinalbackend.entities.Users;
+
 import java.time.LocalDate;
 
 public class ArticuloInformativoDTO {
@@ -8,7 +10,7 @@ public class ArticuloInformativoDTO {
     private String contenido;
     private LocalDate fechaPublicacion;
     private String fuente;
-    private String users_id;
+    private Users users;
 
     public int getIdArticulo() {
         return idArticulo;
@@ -50,11 +52,11 @@ public class ArticuloInformativoDTO {
         this.fuente = fuente;
     }
 
-    public String getUsers_id() {
-        return users_id;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUsers_id(String users_id) {
-        this.users_id = users_id;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

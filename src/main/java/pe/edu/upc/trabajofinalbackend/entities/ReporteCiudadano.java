@@ -15,9 +15,6 @@ public class ReporteCiudadano {
     private LocalDate fechaReporte;
     @Column(name="cuidad",nullable = false,length = 100)
     private String cuidad;
-    //IGNORAR
-    @Column(name="usuarioid",length = 100)
-    private String users_id;
 
     public ReporteCiudadano(){}
     //USAR ESTE user_id PARA EL FK
@@ -25,13 +22,17 @@ public class ReporteCiudadano {
     @JoinColumn(name="users_id")
     private Users users;
 
-    public ReporteCiudadano(int id, String tipodengue, LocalDate fechaReporte, String cuidad, String users_id, Users users) {
+    @ManyToOne
+    @JoinColumn(name="enfermedad_id")
+    private Enfermedad enfermedad;
+
+    public ReporteCiudadano(int id, String tipodengue, LocalDate fechaReporte, String cuidad, Users users, Enfermedad enfermedad) {
         this.id = id;
         this.tipodengue = tipodengue;
         this.fechaReporte = fechaReporte;
         this.cuidad = cuidad;
-        this.users_id = users_id;
         this.users = users;
+        this.enfermedad = enfermedad;
     }
 
     public int getId() {
@@ -66,19 +67,19 @@ public class ReporteCiudadano {
         this.cuidad = cuidad;
     }
 
-    public String getUsers_id() {
-        return users_id;
-    }
-
-    public void setUsers_id(String users_id) {
-        this.users_id = users_id;
-    }
-
     public Users getUsers() {
         return users;
     }
 
     public void setUsers(Users users) {
         this.users = users;
+    }
+
+    public Enfermedad getEnfermedad() {
+        return enfermedad;
+    }
+
+    public void setEnfermedad(Enfermedad enfermedad) {
+        this.enfermedad = enfermedad;
     }
 }

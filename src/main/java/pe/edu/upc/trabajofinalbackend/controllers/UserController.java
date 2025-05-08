@@ -3,10 +3,13 @@ package pe.edu.upc.trabajofinalbackend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.trabajofinalbackend.dtos.EstadisticasporusuariocalorDTO;
 import pe.edu.upc.trabajofinalbackend.dtos.UserDTO;
+import pe.edu.upc.trabajofinalbackend.dtos.distribuciondesuscriptoresuruarioDTO;
 import pe.edu.upc.trabajofinalbackend.entities.Users;
 import pe.edu.upc.trabajofinalbackend.servicesinterfaces.IUserService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,6 +51,35 @@ public class UserController {
         uS.delete(id);
     }
 
+
+    @GetMapping("/estadisticasporusuariocalor")
+    public List<EstadisticasporusuariocalorDTO> Query01() {
+        List<String[]> filaLista = uS.estadisticasporusuariocalor();
+        List<EstadisticasporusuariocalorDTO> dtoLista = new ArrayList<>();
+        for (String[] columna : filaLista) {
+            EstadisticasporusuariocalorDTO dto = new EstadisticasporusuariocalorDTO();
+            dto.setName(columna[0]);
+            dto.setCorreo(columna[1]);
+            dto.setCantidad_registros(Integer.parseInt(columna[2]));
+            dto.setPromedio_concentracion(Double.parseDouble(columna[3]));
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
+
+    @GetMapping("/distribuciondesuscriptoresuruario")
+    public List<distribuciondesuscriptoresuruarioDTO> Query02() {
+        List<String[]> filaLista = uS.distribuciondesuscriptoresuruario();
+        List<distribuciondesuscriptoresuruarioDTO> dtoLista = new ArrayList<>();
+        for (String[] columna : filaLista) {
+            distribuciondesuscriptoresuruarioDTO dto = new distribuciondesuscriptoresuruarioDTO();
+            dto.setName_susxription(columna[0]);
+            dto.setCantidad(Integer.parseInt(columna[1]));
+            dto.setPorcentaje(Double.parseDouble(columna[2]));
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
 
 
 }

@@ -73,4 +73,5 @@ public class CommentForum {
     public void setUsers(Users users) {
         this.users = users;
     }
+
 }

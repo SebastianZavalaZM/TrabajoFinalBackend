@@ -10,4 +10,8 @@ public interface IUserService {
     public Users listId(int id);
     public void update(Users user);
     public void delete(int id);
+
+    public List<String[]> estadisticasporusuariocalor();
+
+    public List<String[]> distribuciondesuscriptoresuruario();
 }

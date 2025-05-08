@@ -18,9 +18,6 @@ public class ArticuloInformativo {
     private LocalDate fechaPublicacion;
     @Column(name="fuente",nullable = false,length = 100)
     private String fuente;
-    //IGNORAR
-    @Column(name="usuarioid",length = 100)
-    private String users_id;
 
     public ArticuloInformativo(){}
 
@@ -29,13 +26,12 @@ public class ArticuloInformativo {
     @JoinColumn(name="users_id")
     private Users users;
 
-    public ArticuloInformativo(int idArticulo, String titulo, String contenido, LocalDate fechaPublicacion, String fuente, String users_id, Users users) {
+    public ArticuloInformativo(int idArticulo, String titulo, String contenido, LocalDate fechaPublicacion, String fuente, Users users) {
         this.idArticulo = idArticulo;
         this.titulo = titulo;
         this.contenido = contenido;
         this.fechaPublicacion = fechaPublicacion;
         this.fuente = fuente;
-        this.users_id = users_id;
         this.users = users;
     }
 
@@ -77,14 +73,6 @@ public class ArticuloInformativo {
 
     public void setFuente(String fuente) {
         this.fuente = fuente;
-    }
-
-    public String getUsers_id() {
-        return users_id;
-    }
-
-    public void setUsers_id(String users_id) {
-        this.users_id = users_id;
     }
 
     public Users getUsers() {

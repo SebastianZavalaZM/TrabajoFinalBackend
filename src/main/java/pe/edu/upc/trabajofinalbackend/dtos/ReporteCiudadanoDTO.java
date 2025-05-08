@@ -1,5 +1,8 @@
 package pe.edu.upc.trabajofinalbackend.dtos;
 
+import pe.edu.upc.trabajofinalbackend.entities.Enfermedad;
+import pe.edu.upc.trabajofinalbackend.entities.Users;
+
 import java.time.LocalDate;
 
 public class ReporteCiudadanoDTO {
@@ -8,7 +11,8 @@ public class ReporteCiudadanoDTO {
     private String tipodengue;
     private LocalDate fechaReporte;
     private String cuidad;
-    private String users_id;
+    private Users users;
+    private Enfermedad enfermedad;
 
     public int getId() {
         return id;
@@ -42,11 +46,19 @@ public class ReporteCiudadanoDTO {
         this.cuidad = cuidad;
     }
 
-    public String getUsers_id() {
-        return users_id;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUsers_id(String users_id) {
-        this.users_id = users_id;
+    public void setUsers(Users users) {
+        this.users = users;
+    }
+
+    public Enfermedad getEnfermedad() {
+        return enfermedad;
+    }
+
+    public void setEnfermedad(Enfermedad enfermedad) {
+        this.enfermedad = enfermedad;
     }
 }
