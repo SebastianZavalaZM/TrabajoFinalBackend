@@ -5,21 +5,25 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "foros")
+@Table(name = "Forum")
 public class Forum {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idforum;
-    @Column(name = "titulo", length = 30, nullable = false)
+
+    @Column(name = "titulo", length = 150, nullable = false)
     private String titulo;
-    @Column(name = "descripcion", length = 100, nullable = false)
+
+    @Column(name = "descripcion", length = 150, nullable = false)
     private String descripcion;
+
     @Column(name = "fechacreacion", nullable = false)
     private LocalDate fechacreacion;
+
     @ManyToOne
     @JoinColumn(name = "idUsers")
-    private Users users;
+    private Users Users;
 
     public Forum() {
     }
@@ -29,7 +33,7 @@ public class Forum {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.fechacreacion = fechacreacion;
-        this.users = users;
+        Users = users;
     }
 
     public int getIdforum() {
@@ -65,10 +69,10 @@ public class Forum {
     }
 
     public Users getUsers() {
-        return users;
+        return Users;
     }
 
     public void setUsers(Users users) {
-        this.users = users;
+        Users = users;
     }
 }

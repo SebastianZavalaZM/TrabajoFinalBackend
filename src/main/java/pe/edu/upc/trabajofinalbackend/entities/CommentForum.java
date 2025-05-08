@@ -4,73 +4,75 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "comentariosforos")
+@Table(name = "CommentForum")
 public class CommentForum {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idCommentForum;
+
     @Column(name = "comentario", length = 100, nullable = false)
-    private String contenido;
+    private String contenidoCommentForum;
+
     @Column(name = "fechacomentario", nullable = false)
-    private LocalDate fechaComentario;
+    private LocalDate fechaComentarioCommnetForum;
 
     @ManyToOne
     @JoinColumn(name = "idforum")
-    private Forum forums;
+    private Forum Forum;
 
     @ManyToOne
-    @JoinColumn(name = "users_id")
-    private Users users;
+    @JoinColumn(name = "idUsers")
+    private Users Users;
 
     public CommentForum() {
     }
 
-    public CommentForum(int id, String contenido, LocalDate fechaComentario, Forum forums, Users users) {
-        this.id = id;
-        this.contenido = contenido;
-        this.fechaComentario = fechaComentario;
-        this.forums = forums;
-        this.users = users;
+    public CommentForum(int idCommentForum, String contenidoCommentForum, LocalDate fechaComentarioCommnetForum, Forum forum, Users users) {
+        this.idCommentForum = idCommentForum;
+        this.contenidoCommentForum = contenidoCommentForum;
+        this.fechaComentarioCommnetForum = fechaComentarioCommnetForum;
+        Forum = forum;
+        Users = users;
     }
 
-    public int getId() {
-        return id;
+    public int getIdCommentForum() {
+        return idCommentForum;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdCommentForum(int idCommentForum) {
+        this.idCommentForum = idCommentForum;
     }
 
-    public String getContenido() {
-        return contenido;
+    public String getContenidoCommentForum() {
+        return contenidoCommentForum;
     }
 
-    public void setContenido(String contenido) {
-        this.contenido = contenido;
+    public void setContenidoCommentForum(String contenidoCommentForum) {
+        this.contenidoCommentForum = contenidoCommentForum;
     }
 
-    public LocalDate getFechaComentario() {
-        return fechaComentario;
+    public LocalDate getFechaComentarioCommnetForum() {
+        return fechaComentarioCommnetForum;
     }
 
-    public void setFechaComentario(LocalDate fechaComentario) {
-        this.fechaComentario = fechaComentario;
+    public void setFechaComentarioCommnetForum(LocalDate fechaComentarioCommnetForum) {
+        this.fechaComentarioCommnetForum = fechaComentarioCommnetForum;
     }
 
-    public Forum getForums() {
-        return forums;
+    public Forum getForum() {
+        return Forum;
     }
 
-    public void setForums(Forum forums) {
-        this.forums = forums;
+    public void setForum(Forum forum) {
+        Forum = forum;
     }
 
     public Users getUsers() {
-        return users;
+        return Users;
     }
 
     public void setUsers(Users users) {
-        this.users = users;
+        Users = users;
     }
 }

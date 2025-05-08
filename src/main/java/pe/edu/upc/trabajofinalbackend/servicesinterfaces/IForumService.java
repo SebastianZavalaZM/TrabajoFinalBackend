@@ -11,5 +11,5 @@ public interface IForumService {
     Forum listId(int id);
     void update(Forum f);
     void delete(int id);
-    List<Forum> buscar(LocalDate fechaInicio, LocalDate fechaFin);
+    List<Forum> buscarPorPeriodo(LocalDate fechaInicio, LocalDate fechaFin);
 }

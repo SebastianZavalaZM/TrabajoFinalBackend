@@ -31,7 +31,7 @@ public class ForumServiceImplement implements IForumService {
     public void delete(int id) { forumRepository.deleteById(id); }
 
     @Override
-    public List<Forum> buscar(LocalDate fechaInicio, LocalDate fechaFin) { return forumRepository.buscarPorPeriodo(fechaInicio, fechaFin); }
+    public List<Forum> buscarPorPeriodo(LocalDate fechaInicio, LocalDate fechaFin) { return forumRepository.buscarPorPeriodo(fechaInicio, fechaFin); }
 
 
 
