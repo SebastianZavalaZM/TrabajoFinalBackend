@@ -7,10 +7,8 @@ import pe.edu.upc.trabajofinalbackend.repositories.IArticuloInformativoRepositor
 import pe.edu.upc.trabajofinalbackend.servicesinterfaces.IArticuloInformativoService;
 
 import java.util.List;
-
 @Service
 public class ArticuloInformativoServiceImplement implements IArticuloInformativoService {
-
     @Autowired
     private IArticuloInformativoRepository aR;
 
@@ -34,5 +32,15 @@ public class ArticuloInformativoServiceImplement implements IArticuloInformativo
 
     @Override
     public void delete(int id) { aR.deleteById(id); }
+
+    @Override
+    public List<ArticuloInformativo> listConReportes() {
+        return aR.buscarPorUsuario();
+    }
+
+    @Override
+    public List<ArticuloInformativo> buscarPorContenidoDeReportes(String keyword) {
+        return aR.buscarPorTituloOContenido(keyword);
+    }
 
 }

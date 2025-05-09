@@ -33,4 +33,5 @@ public class ReporteCiudadanoServiceImplement implements IReporteCiudadanoServic
 
     @Override
     public void delete(int id) { rR.deleteById(id); }
+
 }
