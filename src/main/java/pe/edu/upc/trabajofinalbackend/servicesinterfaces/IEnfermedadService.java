@@ -11,4 +11,7 @@ public interface IEnfermedadService {
     public Enfermedad listId(int id);
     public void update(Enfermedad e);
     public void delete(int id);
+
+    // NUEVO QUERY: contar enfermedades por nivel de riesgo
+    public List<Object[]> contarPorNivelRiesgo();
 }

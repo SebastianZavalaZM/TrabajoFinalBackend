@@ -64,10 +64,4 @@ public class TipoEnfermedadController {
                 })
                 .collect(Collectors.toList());
     }
-
-    // QUERY 2: CONTAR LOS TIPOS DE ENFERMEDADESS REGISTRADOSS
-    @GetMapping("/contar")
-    public Long contarTiposDeEnfermedad() {
-        return tipoEnfermedadService.contarTiposDeEnfermedad();
-    }
 }

@@ -41,15 +41,9 @@ public class TipoEnfermedadServiceImplement implements ITipoEnfermedadService {
         tR.deleteById(id);
     }
 
-    // QUERY 1
+    // QUERY: buscar por nombre parcial (ignora mayusculas/minusculas)
     @Override
     public List<TipoEnfermedad> buscarPorNombreContiene(String palabra) {
         return tR.findByNombreContainingIgnoreCase(palabra);
-    }
-
-    //  QUERY 2
-    @Override
-    public Long contarTiposDeEnfermedad() {
-        return tR.count();
     }
 }

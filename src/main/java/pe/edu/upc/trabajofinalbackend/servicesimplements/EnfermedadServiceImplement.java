@@ -1,6 +1,5 @@
 //En este archivo programamos como hacer realmente esas operaciones usando el repositorio.
 
-
 package pe.edu.upc.trabajofinalbackend.servicesimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +39,11 @@ public class EnfermedadServiceImplement implements IEnfermedadService {
     @Override
     public void delete(int id) {
         eR.deleteById(id);
+    }
+
+    // NUEVO QUERY: contar enfermedades por nivel de riesgo
+    @Override
+    public List<Object[]> contarPorNivelRiesgo() {
+        return eR.contarPorNivelRiesgo();
     }
 }

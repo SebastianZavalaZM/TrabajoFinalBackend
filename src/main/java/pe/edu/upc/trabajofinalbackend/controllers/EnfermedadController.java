@@ -52,4 +52,10 @@ public class EnfermedadController {
     public void eliminar(@PathVariable("id") int id) {
         enfermedadService.delete(id);
     }
+
+    // NUEVO QUERY: contar enfermedades por nivel de riesgo
+    @GetMapping("/contar-nivel-riesgo")
+    public List<Object[]> contarEnfermedadesPorNivelRiesgo() {
+        return enfermedadService.contarPorNivelRiesgo();
+    }
 }
