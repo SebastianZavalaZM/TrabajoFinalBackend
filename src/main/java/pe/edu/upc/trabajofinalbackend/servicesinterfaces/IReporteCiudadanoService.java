@@ -12,4 +12,5 @@ public interface IReporteCiudadanoService {
     public void update(ReporteCiudadano reporteCiudadano);
     public void delete(int id);
 
+
 }

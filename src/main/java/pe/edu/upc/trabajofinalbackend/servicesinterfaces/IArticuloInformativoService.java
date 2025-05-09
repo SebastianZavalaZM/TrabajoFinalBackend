@@ -11,4 +11,7 @@ public interface IArticuloInformativoService {
     public ArticuloInformativo listId(int id);
     public void update(ArticuloInformativo articuloInformativo);
     public void delete(int id);
+
+    List<ArticuloInformativo> listConReportes();
+    List<ArticuloInformativo> buscarPorContenidoDeReportes(String keyword);
 }
