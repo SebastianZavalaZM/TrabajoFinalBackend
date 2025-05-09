@@ -16,7 +16,5 @@ public interface ICommentForumService {
 
     public void delete(int id);
 
-    public List<CommentForum> buscar(String nombre);
-
-    //public List<CommentForum> buscarForo(String nTitulo);
+    public List<CommentForum> buscarForo(String nTitulo);
 }
