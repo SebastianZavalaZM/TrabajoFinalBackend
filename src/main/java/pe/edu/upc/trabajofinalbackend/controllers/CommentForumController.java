@@ -59,8 +59,8 @@ public class CommentForumController {
     }
 
     @GetMapping("/buscarPorForo")
-    public List<CommentForumDTO> buscarPorForo(@RequestParam String foro){
-        return cS.buscar(foro).stream().map(z->{
+    public List<CommentForumDTO> buscarPorForo(@RequestParam String nTitulo){
+        return cS.buscarForo(nTitulo).stream().map(z->{
             ModelMapper m = new ModelMapper();
             return m.map(z, CommentForumDTO.class);
         }).collect(Collectors.toList());

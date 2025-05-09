@@ -7,53 +7,53 @@ import pe.edu.upc.trabajofinalbackend.entities.Users;
 
 public class CommentForumDTO {
 
-    private int id;
+    private int idCommentForum;
 
-    private String contenido;
+    private String contenidoCommentForum;
 
-    private LocalDate fechaComentario;
+    private LocalDate fechaComentarioCommnetForum;
 
-    private Forum forums;
+    private Forum Forum;
 
-    private Users users;
+    private Users Users;
 
-    public int getId() {
-        return id;
+    public int getIdCommentForum() {
+        return idCommentForum;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdCommentForum(int idCommentForum) {
+        this.idCommentForum = idCommentForum;
     }
 
-    public String getContenido() {
-        return contenido;
+    public String getContenidoCommentForum() {
+        return contenidoCommentForum;
     }
 
-    public void setContenido(String contenido) {
-        this.contenido = contenido;
+    public void setContenidoCommentForum(String contenidoCommentForum) {
+        this.contenidoCommentForum = contenidoCommentForum;
     }
 
-    public LocalDate getFechaComentario() {
-        return fechaComentario;
+    public LocalDate getFechaComentarioCommnetForum() {
+        return fechaComentarioCommnetForum;
     }
 
-    public void setFechaComentario(LocalDate fechaComentario) {
-        this.fechaComentario = fechaComentario;
+    public void setFechaComentarioCommnetForum(LocalDate fechaComentarioCommnetForum) {
+        this.fechaComentarioCommnetForum = fechaComentarioCommnetForum;
     }
 
-    public Forum getForums() {
-        return forums;
+    public Forum getForum() {
+        return Forum;
     }
 
-    public void setForums(Forum forums) {
-        this.forums = forums;
+    public void setForum(Forum forum) {
+        Forum = forum;
     }
 
     public Users getUsers() {
-        return users;
+        return Users;
     }
 
     public void setUsers(Users users) {
-        this.users = users;
+        Users = users;
     }
 }

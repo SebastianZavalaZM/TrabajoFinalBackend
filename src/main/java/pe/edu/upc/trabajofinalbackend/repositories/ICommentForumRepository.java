@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface ICommentForumRepository extends JpaRepository<CommentForum, Integer> {
 
-    @Query("Select c from CommentForum c where c.forums.titulo like %:nTitulo%")
+    @Query("Select c from CommentForum c where c.Forum.titulo like %:nTitulo%")
     public List<CommentForum> buscarForo(@Param("nTitulo") String nTitulo);
 
 }

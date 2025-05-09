@@ -51,12 +51,11 @@ public class ForumController {
 
     @GetMapping("/ListarPorPeriodo")
     public List<ForumDTO> buscarPorPerido(@RequestParam LocalDate fechaInicio, @RequestParam LocalDate fechaFin){
-        return fS.buscar(fechaInicio, fechaFin).stream().map(z->{
+        return fS.buscarPorPeriodo(fechaInicio, fechaFin).stream().map(z->{
             ModelMapper m = new ModelMapper();
             return m.map(z, ForumDTO.class);
         }).collect(Collectors.toList());
     }
-
 
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") int id) {
