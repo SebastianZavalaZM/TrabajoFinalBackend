@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface IArticuloInformativoRepository extends JpaRepository<ArticuloInformativo, Integer> {
-    @Query("SELECT a FROM ArticuloInformativo a WHERE a.users_id = :user_id")
+    @Query("SELECT a FROM ArticuloInformativo a WHERE a.users = :users_id")
     List<ArticuloInformativo> buscarPorUsuario();
 
     @Query("SELECT a FROM ArticuloInformativo a WHERE a.titulo LIKE :titulo OR a.contenido LIKE :titulo")
