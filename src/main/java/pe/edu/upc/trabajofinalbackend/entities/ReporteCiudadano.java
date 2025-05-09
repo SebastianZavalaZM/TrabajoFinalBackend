@@ -9,8 +9,6 @@ public class ReporteCiudadano {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY )
     private int id;
-    @Column(name="tipodengue",nullable = false,length = 100)
-    private String tipodengue;
     @Column(name="fechaReporte",nullable = false)
     private LocalDate fechaReporte;
     @Column(name="cuidad",nullable = false,length = 100)
@@ -26,9 +24,8 @@ public class ReporteCiudadano {
     @JoinColumn(name="enfermedad_id")
     private Enfermedad enfermedad;
 
-    public ReporteCiudadano(int id, String tipodengue, LocalDate fechaReporte, String cuidad, Users users, Enfermedad enfermedad) {
+    public ReporteCiudadano(int id, LocalDate fechaReporte, String cuidad, Users users, Enfermedad enfermedad) {
         this.id = id;
-        this.tipodengue = tipodengue;
         this.fechaReporte = fechaReporte;
         this.cuidad = cuidad;
         this.users = users;
@@ -41,14 +38,6 @@ public class ReporteCiudadano {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getTipodengue() {
-        return tipodengue;
-    }
-
-    public void setTipodengue(String tipodengue) {
-        this.tipodengue = tipodengue;
     }
 
     public LocalDate getFechaReporte() {

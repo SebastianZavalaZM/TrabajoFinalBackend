@@ -2,6 +2,7 @@ package pe.edu.upc.trabajofinalbackend.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.trabajofinalbackend.dtos.ArticuloInformativoDTO;
 import pe.edu.upc.trabajofinalbackend.entities.ArticuloInformativo;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/articuloinformativo")
+@Secured("ADMIN")
 public class ArticuloInformativoController {
 
     @Autowired

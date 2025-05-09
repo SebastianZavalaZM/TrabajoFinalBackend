@@ -2,6 +2,7 @@ package pe.edu.upc.trabajofinalbackend.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.trabajofinalbackend.dtos.NotificationDTO;
 import pe.edu.upc.trabajofinalbackend.entities.Notification;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/notification")
+@Secured("ADMIN")
 public class NotificationController {
 
     @Autowired

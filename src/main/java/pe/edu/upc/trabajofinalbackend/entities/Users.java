@@ -3,20 +3,21 @@ package pe.edu.upc.trabajofinalbackend.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
 
-public class Users {
+public class Users implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsers;
 
-    @Column(name = "Name", nullable = false,length = 150, unique = true)
-    private String name;
+    @Column(name = "username", nullable = false,length = 150, unique = true)
+    private String username;
     @Column(name = "correo",nullable = false,length = 150)
     private String correo;
     @Column(name = "password",nullable = false,length = 200)
@@ -30,6 +31,8 @@ public class Users {
     @Column(name = "LatitudUsuario",nullable = false)
     private double latitudUsuario;
 
+    private Boolean enabled;
+
     @JsonIgnore
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "users_id")
@@ -38,15 +41,17 @@ public class Users {
     public Users() {
     }
 
-    public Users(int idUsers, String name, String correo, String password, LocalDate fecharegistro, String ubicacion, double longitudUsuario, double latitudUsuario) {
+    public Users(int idUsers, String username, String correo, String password, LocalDate fecharegistro, String ubicacion, double longitudUsuario, double latitudUsuario, Boolean enabled, List<Role> roles) {
         this.idUsers = idUsers;
-        this.name = name;
+        this.username = username;
         this.correo = correo;
         this.password = password;
         this.fecharegistro = fecharegistro;
         this.ubicacion = ubicacion;
         this.longitudUsuario = longitudUsuario;
         this.latitudUsuario = latitudUsuario;
+        this.enabled = enabled;
+        this.roles = roles;
     }
 
     public int getIdUsers() {
@@ -58,11 +63,11 @@ public class Users {
     }
 
     public String getName() {
-        return name;
+        return username;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.username = name;
     }
 
     public String getCorreo() {
@@ -113,4 +118,19 @@ public class Users {
         this.latitudUsuario = latitudUsuario;
     }
 
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 }

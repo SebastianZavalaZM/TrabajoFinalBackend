@@ -8,7 +8,6 @@ import java.time.LocalDate;
 public class ReporteCiudadanoDTO {
 
     private int id;
-    private String tipodengue;
     private LocalDate fechaReporte;
     private String cuidad;
     private Users users;
@@ -20,14 +19,6 @@ public class ReporteCiudadanoDTO {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getTipodengue() {
-        return tipodengue;
-    }
-
-    public void setTipodengue(String tipodengue) {
-        this.tipodengue = tipodengue;
     }
 
     public LocalDate getFechaReporte() {

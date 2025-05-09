@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class UserDTO {
 
     private int idUsers;
-    private String name;
+    private String username;
     private String correo;
     private String password;
     private LocalDate fecharegistro;
@@ -22,11 +22,11 @@ public class UserDTO {
     }
 
     public String getName() {
-        return name;
+        return username;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.username = name;
     }
 
     public String getCorreo() {

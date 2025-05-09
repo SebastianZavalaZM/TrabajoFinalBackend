@@ -2,6 +2,8 @@ package pe.edu.upc.trabajofinalbackend.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.trabajofinalbackend.dtos.EstadisticasporusuariocalorDTO;
 import pe.edu.upc.trabajofinalbackend.dtos.UserDTO;
@@ -15,6 +17,8 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Usuarios")
+@Secured("ADMIN")
+@PreAuthorize("!hasAuthority('FREE') and !hasAuthority('PREMIUM')")
 public class UserController {
     @Autowired
     private IUserService uS;
