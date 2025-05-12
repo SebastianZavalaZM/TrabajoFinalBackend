@@ -4,9 +4,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.trabajofinalbackend.dtos.EstadisticasporusuariocalorDTO;
 import pe.edu.upc.trabajofinalbackend.dtos.UserDTO;
+import pe.edu.upc.trabajofinalbackend.dtos.UserListDTO;
 import pe.edu.upc.trabajofinalbackend.dtos.distribuciondesuscriptoresuruarioDTO;
 import pe.edu.upc.trabajofinalbackend.entities.Users;
 import pe.edu.upc.trabajofinalbackend.servicesinterfaces.IUserService;
@@ -23,24 +25,31 @@ public class UserController {
     @Autowired
     private IUserService uS;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @GetMapping
-    public List<UserDTO> listar(){
+    public List<UserListDTO> listar(){
 
         return uS.list().stream().map(x->{
             ModelMapper m = new ModelMapper();
-            return m.map(x, UserDTO.class);
+            return m.map(x, UserListDTO.class);
         }).collect(Collectors.toList());
     }
     @PostMapping
     public void insertar(@RequestBody UserDTO dto){
+        // Encriptar la contraseña antes de mapear al entity
+        String passwordEncriptada = passwordEncoder.encode(dto.getPassword());
+        dto.setPassword(passwordEncriptada);  // sobrescribimos la original
+        // Mapear DTO a entidad
         ModelMapper m = new ModelMapper();
         Users ue = m.map(dto, Users.class);
         uS.insert(ue);
     }
     @GetMapping("/{id}")
-    public UserDTO buscarId(@PathVariable("id") int id){
+    public UserListDTO buscarId(@PathVariable("id") int id){
         ModelMapper m = new ModelMapper();
-        UserDTO dto=m.map(uS.listId(id), UserDTO.class);
+        UserListDTO dto=m.map(uS.listId(id), UserListDTO.class);
         return dto;
     }
 

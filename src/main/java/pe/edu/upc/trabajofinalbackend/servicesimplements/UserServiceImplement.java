@@ -26,7 +26,7 @@ public class UserServiceImplement implements IUserService {
 
     @Override
     public void insert(Users u) {
-        logger.info("Insertando usuario: {}", u.getName());
+        logger.info("Insertando usuario: {}", u.getUsername());
         uR.save(u); }
 
     @Override

@@ -12,6 +12,7 @@ public class UserDTO {
     private String ubicacion;
     private double longitudUsuario;
     private double latitudUsuario;
+    private Boolean enabled;
 
     public int getIdUsers() {
         return idUsers;
@@ -21,12 +22,12 @@ public class UserDTO {
         this.idUsers = idUsers;
     }
 
-    public String getName() {
+    public String getUsername() {
         return username;
     }
 
-    public void setName(String name) {
-        this.username = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getCorreo() {
@@ -75,5 +76,13 @@ public class UserDTO {
 
     public void setLatitudUsuario(double latitudUsuario) {
         this.latitudUsuario = latitudUsuario;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 }
