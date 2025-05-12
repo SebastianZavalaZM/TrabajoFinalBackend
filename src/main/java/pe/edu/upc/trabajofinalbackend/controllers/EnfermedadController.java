@@ -1,3 +1,5 @@
+//Este archivo expone los botones en Swagger para registrar, listar, buscar por id, modificar y eliminar enfermedades.
+
 package pe.edu.upc.trabajofinalbackend.controllers;
 
 import org.modelmapper.ModelMapper;
@@ -51,5 +53,11 @@ public class EnfermedadController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") int id) {
         enfermedadService.delete(id);
+    }
+
+    // NUEVO QUERY: contar enfermedades por nivel de riesgo
+    @GetMapping("/contar-nivel-riesgo")
+    public List<Object[]> contarEnfermedadesPorNivelRiesgo() {
+        return enfermedadService.contarPorNivelRiesgo();
     }
 }

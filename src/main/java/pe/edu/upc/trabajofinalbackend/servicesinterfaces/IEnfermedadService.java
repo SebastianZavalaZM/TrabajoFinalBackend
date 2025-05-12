@@ -1,3 +1,5 @@
+//Aqui definimos que operaciones se pueden hacer con enfermedades: listar, buscar, registrar, modificar y eliminar.
+
 package pe.edu.upc.trabajofinalbackend.servicesinterfaces;
 
 import pe.edu.upc.trabajofinalbackend.entities.Enfermedad;
@@ -9,4 +11,7 @@ public interface IEnfermedadService {
     public Enfermedad listId(int id);
     public void update(Enfermedad e);
     public void delete(int id);
+
+    // NUEVO QUERY: contar enfermedades por nivel de riesgo
+    public List<Object[]> contarPorNivelRiesgo();
 }

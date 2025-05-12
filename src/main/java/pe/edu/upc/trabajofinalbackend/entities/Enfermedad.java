@@ -1,3 +1,5 @@
+//Esta clase representa la tabla enfermedad en la base de datos. Guarda el id, el nombre, los sintomas, el nivel de riesgo y a que tipo de enfermedad pertenece.
+
 package pe.edu.upc.trabajofinalbackend.entities;
 
 import jakarta.persistence.*;

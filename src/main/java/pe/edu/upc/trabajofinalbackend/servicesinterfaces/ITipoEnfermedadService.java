@@ -1,3 +1,5 @@
+//Este archivo define que operaciones se pueden hacer con tipos de enfermedad: listar, buscar, registrar, modificar, eliminar, buscar por palabra.
+
 package pe.edu.upc.trabajofinalbackend.servicesinterfaces;
 
 import pe.edu.upc.trabajofinalbackend.entities.TipoEnfermedad;
@@ -9,4 +11,7 @@ public interface ITipoEnfermedadService {
     public TipoEnfermedad listId(int id);
     public void update(TipoEnfermedad t);
     public void delete(int id);
+
+    //NUEVO QUERY: buscar tipos de enfermedad por palabra
+    public List<TipoEnfermedad> buscarPorNombreContiene(String palabra);
 }

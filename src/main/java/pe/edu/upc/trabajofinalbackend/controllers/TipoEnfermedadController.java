@@ -1,3 +1,5 @@
+//Este es el archivo que expone los botones de Swagger para crear, listar, buscar, actualizar, eliminar, buscar por palabra y contar tipos de enfermedad.
+
 package pe.edu.upc.trabajofinalbackend.controllers;
 
 import org.modelmapper.ModelMapper;
@@ -51,5 +53,17 @@ public class TipoEnfermedadController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") int id) {
         tipoEnfermedadService.delete(id);
+    }
+
+    // QUERY 1: BUSCAR TIPO DE ENFERMEDAD CUYO NOMBRE TENGA CIEERTA PALABRA
+    @GetMapping("/buscarPorNombre")
+    public List<TipoEnfermedadDTO> buscarPorNombre(@RequestParam String palabra) {
+        return tipoEnfermedadService.buscarPorNombreContiene(palabra)
+                .stream()
+                .map(t -> {
+                    ModelMapper modelMapper = new ModelMapper();
+                    return modelMapper.map(t, TipoEnfermedadDTO.class);
+                })
+                .collect(Collectors.toList());
     }
 }
