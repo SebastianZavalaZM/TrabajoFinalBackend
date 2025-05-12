@@ -38,9 +38,9 @@ public class UserController {
     }
     @PostMapping
     public void insertar(@RequestBody UserDTO dto){
-        // Encriptar la contraseña antes de mapear al entity
+        // Encriptar la contraseña
         String passwordEncriptada = passwordEncoder.encode(dto.getPassword());
-        dto.setPassword(passwordEncriptada);  // sobrescribimos la original
+        dto.setPassword(passwordEncriptada);
         // Mapear DTO a entidad
         ModelMapper m = new ModelMapper();
         Users ue = m.map(dto, Users.class);
