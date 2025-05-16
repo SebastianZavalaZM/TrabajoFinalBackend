@@ -17,7 +17,7 @@ public class TipoEnfermedad {
     @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
-    @Column(name = "descripcion", nullable = false, length = 255)
+    @Column(name = "descripcion", nullable = false, length = 250)
     private String descripcion;
 
     @ManyToOne

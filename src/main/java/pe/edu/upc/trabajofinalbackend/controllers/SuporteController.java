@@ -2,7 +2,6 @@ package pe.edu.upc.trabajofinalbackend.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.trabajofinalbackend.dtos.SuporteDTO;
@@ -18,7 +17,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/suportes")
-@Secured("ADMIN")
+//@PreAuthorize("hasAuthority('ADMIN')")
 //@PreAuthorize("!hasAuthority('ADMIN')")
 public class SuporteController {
 

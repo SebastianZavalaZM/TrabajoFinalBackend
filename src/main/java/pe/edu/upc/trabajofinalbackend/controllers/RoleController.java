@@ -14,8 +14,8 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Roles")
-@Secured("ADMIN")
-@PreAuthorize("!hasAuthority('FREE') or !hasAuthority('PREMIUM')")
+//@Secured("ADMIN")
+//@PreAuthorize("!hasAuthority('FREE') or !hasAuthority('PREMIUM')")
 public class RoleController {
 
     @Autowired

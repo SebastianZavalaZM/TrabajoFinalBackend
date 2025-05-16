@@ -2,7 +2,6 @@ package pe.edu.upc.trabajofinalbackend.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.trabajofinalbackend.dtos.SuscriptionDTO;
@@ -14,8 +13,9 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/suscripciones")
-@Secured("ADMIN")
-@PreAuthorize("!hasAuthority('FREE') and !hasAuthority('PREMIUM')")
+//@PreAuthorize("!hasAuthority('FREE') and !hasAuthority('PREMIUM') and hasAuthority('ADMIN')")
+//@PreAuthorize("hasAuthority('PREMIUM') and hasAuthority('ADMIN')")
+//@PreAuthorize("hasAuthority('ADMIN')")
 public class SuscriptionController {
 
     @Autowired

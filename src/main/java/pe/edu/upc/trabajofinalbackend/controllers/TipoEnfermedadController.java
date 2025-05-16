@@ -4,7 +4,7 @@ package pe.edu.upc.trabajofinalbackend.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.trabajofinalbackend.dtos.TipoEnfermedadDTO;
 import pe.edu.upc.trabajofinalbackend.entities.TipoEnfermedad;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/tipoenfermedades")
-@Secured("ADMIN")
+//@PreAuthorize("hasAuthority('ADMIN')")
 public class TipoEnfermedadController {
 
     @Autowired

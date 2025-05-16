@@ -3,6 +3,7 @@ package pe.edu.upc.trabajofinalbackend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.trabajofinalbackend.dtos.ForumDTO;
 import pe.edu.upc.trabajofinalbackend.entities.Forum;
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Foros")
-@Secured("ADMIN")
+//@PreAuthorize("hasAuthority('ADMIN')")
 public class ForumController {
 
     @Autowired

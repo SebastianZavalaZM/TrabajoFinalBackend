@@ -19,8 +19,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Usuarios")
-@Secured("ADMIN")
-@PreAuthorize("!hasAuthority('FREE') and !hasAuthority('PREMIUM')")
+//@PreAuthorize("!hasAuthority('FREE') and !hasAuthority('PREMIUM')")
 public class UserController {
     @Autowired
     private IUserService uS;
