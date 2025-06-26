@@ -2,7 +2,6 @@ package pe.edu.upc.trabajofinalbackend.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.trabajofinalbackend.dtos.EstadisticasporusuariocalorDTO;
 import pe.edu.upc.trabajofinalbackend.dtos.UserDTO;
@@ -21,8 +20,8 @@ public class UserController {
     @Autowired
     private IUserService uS;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+//    @Autowired
+//    private PasswordEncoder passwordEncoder;
 
     @GetMapping
     public List<UserListDTO> listar(){
@@ -35,8 +34,8 @@ public class UserController {
     @PostMapping
     public void insertar(@RequestBody UserDTO dto){
         // Encriptar la contraseña
-        String passwordEncriptada = passwordEncoder.encode(dto.getPassword());
-        dto.setPassword(passwordEncriptada);
+//        String passwordEncriptada = passwordEncoder.encode(dto.getPassword());
+//        dto.setPassword(passwordEncriptada);
         // Mapear DTO a entidad
         ModelMapper m = new ModelMapper();
         Users ue = m.map(dto, Users.class);
