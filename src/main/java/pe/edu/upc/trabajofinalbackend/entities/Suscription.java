@@ -24,7 +24,7 @@ public class Suscription {
     private LocalDate endDateSuscription;
 
     @ManyToOne
-    @JoinColumn(name = "idUsers")
+    @JoinColumn(name = "users_id")//idUsers
     private Users users;
 
     public Suscription() {

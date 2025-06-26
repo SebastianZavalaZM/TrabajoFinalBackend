@@ -26,7 +26,7 @@ public class MapaCalor {
     private double concentraciondecalor;
 
     @ManyToOne
-    @JoinColumn(name = "idUsers")
+    @JoinColumn(name = "users_id")//idUsers
     private Users users;
 
     public MapaCalor() {

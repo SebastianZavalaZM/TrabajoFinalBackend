@@ -7,18 +7,18 @@ import java.time.LocalDate;
 
 public class ReporteCiudadanoDTO {
 
-    private int id;
+    private int id_reporte_ciudadano;
     private LocalDate fechaReporte;
     private String cuidad;
     private Users users;
     private Enfermedad enfermedad;
 
-    public int getId() {
-        return id;
+    public int getId_reporte_ciudadano() {
+        return id_reporte_ciudadano;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_reporte_ciudadano(int id_reporte_ciudadano) {
+        this.id_reporte_ciudadano = id_reporte_ciudadano;
     }
 
     public LocalDate getFechaReporte() {

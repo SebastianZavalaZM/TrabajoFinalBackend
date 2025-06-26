@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Comentarios")
-//@PreAuthorize("hasAuthority('ADMIN')")
 public class CommentForumController {
 
     @Autowired

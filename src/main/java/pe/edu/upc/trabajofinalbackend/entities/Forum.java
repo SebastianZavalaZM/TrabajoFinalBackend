@@ -22,7 +22,7 @@ public class Forum {
     private LocalDate fechacreacion;
 
     @ManyToOne
-    @JoinColumn(name = "idUsers")
+    @JoinColumn(name = "users_id")//idUsers
     private Users Users;
 
     public Forum() {

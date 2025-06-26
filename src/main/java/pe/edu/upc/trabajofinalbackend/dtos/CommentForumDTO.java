@@ -2,6 +2,7 @@ package pe.edu.upc.trabajofinalbackend.dtos;
 
 import java.time.LocalDate;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import pe.edu.upc.trabajofinalbackend.entities.Forum;
 import pe.edu.upc.trabajofinalbackend.entities.Users;
 

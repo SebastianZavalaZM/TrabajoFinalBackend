@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class ReporteCiudadano {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY )
-    private int id;
+    private int id_reporte_ciudadano;
     @Column(name="fechaReporte",nullable = false)
     private LocalDate fechaReporte;
     @Column(name="cuidad",nullable = false,length = 100)
@@ -24,20 +24,20 @@ public class ReporteCiudadano {
     @JoinColumn(name="enfermedad_id")
     private Enfermedad enfermedad;
 
-    public ReporteCiudadano(int id, LocalDate fechaReporte, String cuidad, Users users, Enfermedad enfermedad) {
-        this.id = id;
+    public ReporteCiudadano(int id_reporte_ciudadano, LocalDate fechaReporte, String cuidad, Users users, Enfermedad enfermedad) {
+        this.id_reporte_ciudadano = id_reporte_ciudadano;
         this.fechaReporte = fechaReporte;
         this.cuidad = cuidad;
         this.users = users;
         this.enfermedad = enfermedad;
     }
 
-    public int getId() {
-        return id;
+    public int getId_reporte_ciudadano() {
+        return id_reporte_ciudadano;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_reporte_ciudadano(int id_reporte_ciudadano) {
+        this.id_reporte_ciudadano = id_reporte_ciudadano;
     }
 
     public LocalDate getFechaReporte() {

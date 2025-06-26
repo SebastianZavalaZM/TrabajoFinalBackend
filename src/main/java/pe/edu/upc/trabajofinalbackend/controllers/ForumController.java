@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Foros")
-//@PreAuthorize("hasAuthority('ADMIN')")
 public class ForumController {
 
     @Autowired

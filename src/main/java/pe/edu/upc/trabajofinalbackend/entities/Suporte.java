@@ -19,7 +19,7 @@ public class Suporte {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "idUsers")
+    @JoinColumn(name = "users_id")//idUsers
     private Users users;
 
     public Suporte() {

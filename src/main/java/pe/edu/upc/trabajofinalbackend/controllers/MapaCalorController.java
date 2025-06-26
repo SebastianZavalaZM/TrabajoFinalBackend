@@ -14,10 +14,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/mapacalor")
-//@Secured("ADMIN")
-//@PreAuthorize("!hasAuthority('FREE')")
-//@PreAuthorize("!hasAuthority('FREE') or !hasAuthority('PREMIUM')")
-//@PreAuthorize("hasAuthority('ADMIN')")
 public class MapaCalorController {
     @Autowired
     private IMapaCalorService mS;

@@ -21,7 +21,7 @@ public class TipoEnfermedad {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "idUsers")
+    @JoinColumn(name = "users_id") //idUsers
     private Users users;
 
     public TipoEnfermedad() {

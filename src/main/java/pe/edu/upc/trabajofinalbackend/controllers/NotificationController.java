@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/notification")
-//@PreAuthorize("hasAuthority('ADMIN')")
 public class NotificationController {
 
     @Autowired

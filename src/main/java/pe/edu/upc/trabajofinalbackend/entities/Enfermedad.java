@@ -22,7 +22,7 @@ public class Enfermedad {
     private String nivelRiesgo;
 
     @ManyToOne
-    @JoinColumn(name = "tipo_enfermedad_id")
+    @JoinColumn(name = "idTipo")
     private TipoEnfermedad tipoEnfermedad;
 
     public Enfermedad() {
