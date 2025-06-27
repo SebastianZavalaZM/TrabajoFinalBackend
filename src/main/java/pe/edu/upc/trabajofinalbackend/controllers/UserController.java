@@ -51,8 +51,19 @@ public class UserController {
     @PutMapping
     public void modificar(@RequestBody UserDTO dto){
         ModelMapper m = new ModelMapper();
-        Users ue  = m.map(dto, Users.class);
-        uS.update(ue);
+//        Users ue  = m.map(dto, Users.class);
+//        uS.update(ue);
+        // Cargar el usuario existente desde la base de datos
+        Users existingUser = uS.listId(dto.getIdUsers());
+        if (existingUser != null) {
+            // Si el password no se envía, mantener el valor actual
+            if (dto.getPassword() == null || dto.getPassword().isEmpty()) {
+                dto.setPassword(existingUser.getPassword());
+            }
+            // Mapear DTO a entidad
+            Users ue = m.map(dto, Users.class);
+            uS.update(ue);
+        }
     }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") int id){
