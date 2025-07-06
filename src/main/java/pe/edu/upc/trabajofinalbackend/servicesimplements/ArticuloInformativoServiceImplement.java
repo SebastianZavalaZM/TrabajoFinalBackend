@@ -39,7 +39,7 @@ public class ArticuloInformativoServiceImplement implements IArticuloInformativo
     }
 
     @Override
-    public List<ArticuloInformativo> buscarPorContenidoDeReportes(String keyword) {
+    public List<ArticuloInformativo> buscarPorTitulo(String keyword) {
         return aR.buscarPorTituloOContenido(keyword);
     }
 

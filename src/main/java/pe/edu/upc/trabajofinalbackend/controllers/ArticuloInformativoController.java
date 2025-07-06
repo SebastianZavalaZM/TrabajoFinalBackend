@@ -60,9 +60,9 @@ public class ArticuloInformativoController {
         }).collect(Collectors.toList());
     }
 
-    @GetMapping("/buscarreporte")
+    @GetMapping("/buscartitulo")
     public List<ArticuloInformativoDTO> buscarPorTituloOContenido(@RequestParam("keyword") String keyword) {
-        return aS.buscarPorContenidoDeReportes(keyword).stream().map(x -> {
+        return aS.buscarPorTitulo(keyword).stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, ArticuloInformativoDTO.class);
         }).collect(Collectors.toList());
