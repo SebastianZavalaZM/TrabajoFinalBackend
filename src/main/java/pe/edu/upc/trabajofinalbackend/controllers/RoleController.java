@@ -18,7 +18,7 @@ public class RoleController {
     private IRoleService rS;
 
     @PostMapping
-    public  void registrar(@RequestBody RoleDTO dto){
+    public void registrar(@RequestBody RoleDTO dto){
         ModelMapper m = new ModelMapper();
         Role r = m.map(dto, Role.class);
         rS.insert(r);
