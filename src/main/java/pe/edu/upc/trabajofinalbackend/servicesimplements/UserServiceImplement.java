@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import pe.edu.upc.trabajofinalbackend.entities.Users;
 import pe.edu.upc.trabajofinalbackend.repositories.IUserRepository;
 import pe.edu.upc.trabajofinalbackend.servicesinterfaces.IUserService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
 
@@ -17,6 +18,8 @@ public class UserServiceImplement implements IUserService {
 
     @Autowired
     private IUserRepository uR;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public List<Users> list() {
@@ -26,8 +29,13 @@ public class UserServiceImplement implements IUserService {
 
     @Override
     public void insert(Users u) {
+        if (!u.getPassword().startsWith("$2a$")) { // Verifica si ya está encriptado
+            String encodedPassword = passwordEncoder.encode(u.getPassword());
+            u.setPassword(encodedPassword);
+        }
         logger.info("Insertando usuario: {}", u.getUsername());
-        uR.save(u); }
+        uR.save(u);
+    }
 
     @Override
     public Users listId(int id) {
@@ -37,6 +45,10 @@ public class UserServiceImplement implements IUserService {
 
     @Override
     public void update(Users u) {
+        if (!u.getPassword().startsWith("$2a$")) { // Evita doble encriptación
+            String encodedPassword = passwordEncoder.encode(u.getPassword());
+            u.setPassword(encodedPassword);
+        }
         logger.info("Actualizando usuario con ID: {}", u.getIdUsers());
         uR.save(u);
     }

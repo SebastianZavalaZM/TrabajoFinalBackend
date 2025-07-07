@@ -17,7 +17,7 @@ public class ReporteCiudadanoController {
     @Autowired
     private IReporteCiudadanoService rS;
 
-    @GetMapping
+    @GetMapping("/listas")
     public List<ReporteCiudadanoDTO> listar(){
 
         return rS.list().stream().map(x->{
