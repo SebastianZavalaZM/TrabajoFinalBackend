@@ -56,10 +56,10 @@ public class ReporteCiudadanoController {
     // NUEVA RUTA: búsqueda por ciudad o enfermedad
     @GetMapping("/buscarPorCiudadOEnfermedad")
     public List<ReporteCiudadanoDTO> buscarPorCiudadOEnfermedad(
-            @RequestParam("cuidad") String cuidad,
+            @RequestParam("ciudad") String ciudad,
             @RequestParam("enfermedad") String enfermedad) {
 
-        return rS.buscarPorCiudadOEnfermedad(cuidad, enfermedad)
+        return rS.buscarPorCiudadOEnfermedad(ciudad, enfermedad)
                 .stream()
                 .map(entidad -> {
                     ModelMapper m = new ModelMapper();

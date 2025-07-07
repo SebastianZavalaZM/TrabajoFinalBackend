@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface IReporteCiudadanoRepository extends JpaRepository<ReporteCiudadano, Integer> {
 
-    @Query("SELECT r FROM ReporteCiudadano r WHERE r.cuidad LIKE :cuidad OR r.enfermedad.nombre LIKE :enfermedad")
-    List<ReporteCiudadano> buscarPorCiudadOEnfermedad(@Param("cuidad") String ciudad, @Param("enfermedad") String enfermedad);
+    @Query("SELECT r FROM ReporteCiudadano r WHERE r.ciudad LIKE :cuidad OR r.enfermedad.nombre LIKE :enfermedad")
+    List<ReporteCiudadano> buscarPorCiudadOEnfermedad(@Param("ciudad") String ciudad, @Param("enfermedad") String enfermedad);
 
 }

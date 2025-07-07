@@ -12,6 +12,6 @@ public interface IReporteCiudadanoService {
     public void update(ReporteCiudadano reporteCiudadano);
     public void delete(int id);
 
-    List<ReporteCiudadano> buscarPorCiudadOEnfermedad(String cuidad, String enfermedad);
+    List<ReporteCiudadano> buscarPorCiudadOEnfermedad(String ciudad, String enfermedad);
 
 }

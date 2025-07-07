@@ -7,18 +7,18 @@ import java.time.LocalDate;
 
 public class ReporteCiudadanoDTO {
 
-    private int id;
+    private int idReporte;
     private LocalDate fechaReporte;
-    private String cuidad;
+    private String ciudad;
     private Users users;
     private Enfermedad enfermedad;
 
-    public int getId() {
-        return id;
+    public Enfermedad getEnfermedad() {
+        return enfermedad;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setEnfermedad(Enfermedad enfermedad) {
+        this.enfermedad = enfermedad;
     }
 
     public LocalDate getFechaReporte() {
@@ -29,12 +29,20 @@ public class ReporteCiudadanoDTO {
         this.fechaReporte = fechaReporte;
     }
 
+    public int getIdReporte() {
+        return idReporte;
+    }
+
+    public void setIdReporte(int idReporte) {
+        this.idReporte = idReporte;
+    }
+
     public String getCuidad() {
-        return cuidad;
+        return ciudad;
     }
 
     public void setCuidad(String cuidad) {
-        this.cuidad = cuidad;
+        this.ciudad = cuidad;
     }
 
     public Users getUsers() {
@@ -43,13 +51,5 @@ public class ReporteCiudadanoDTO {
 
     public void setUsers(Users users) {
         this.users = users;
-    }
-
-    public Enfermedad getEnfermedad() {
-        return enfermedad;
-    }
-
-    public void setEnfermedad(Enfermedad enfermedad) {
-        this.enfermedad = enfermedad;
     }
 }
