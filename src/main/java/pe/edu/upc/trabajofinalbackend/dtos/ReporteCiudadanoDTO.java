@@ -13,12 +13,12 @@ public class ReporteCiudadanoDTO {
     private Users users;
     private Enfermedad enfermedad;
 
-    public Enfermedad getEnfermedad() {
-        return enfermedad;
+    public int getIdReporte() {
+        return idReporte;
     }
 
-    public void setEnfermedad(Enfermedad enfermedad) {
-        this.enfermedad = enfermedad;
+    public void setIdReporte(int idReporte) {
+        this.idReporte = idReporte;
     }
 
     public LocalDate getFechaReporte() {
@@ -29,20 +29,12 @@ public class ReporteCiudadanoDTO {
         this.fechaReporte = fechaReporte;
     }
 
-    public int getIdReporte() {
-        return idReporte;
-    }
-
-    public void setIdReporte(int idReporte) {
-        this.idReporte = idReporte;
-    }
-
-    public String getCuidad() {
+    public String getCiudad() {
         return ciudad;
     }
 
-    public void setCuidad(String cuidad) {
-        this.ciudad = cuidad;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
     public Users getUsers() {
@@ -51,5 +43,13 @@ public class ReporteCiudadanoDTO {
 
     public void setUsers(Users users) {
         this.users = users;
+    }
+
+    public Enfermedad getEnfermedad() {
+        return enfermedad;
+    }
+
+    public void setEnfermedad(Enfermedad enfermedad) {
+        this.enfermedad = enfermedad;
     }
 }

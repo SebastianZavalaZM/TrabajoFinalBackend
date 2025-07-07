@@ -11,7 +11,7 @@ public class ReporteCiudadano {
     private int idReporte;
     @Column(name="fechaReporte",nullable = false)
     private LocalDate fechaReporte;
-    @Column(name="cuidad",nullable = false,length = 100)
+    @Column(name="ciudad",nullable = false,length = 100)
     private String ciudad;
 
     public ReporteCiudadano(){}
