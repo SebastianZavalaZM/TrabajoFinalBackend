@@ -35,8 +35,8 @@ public class ReporteCiudadanoServiceImplement implements IReporteCiudadanoServic
     public void delete(int id) { rR.deleteById(id); }
 
     @Override
-    public List<ReporteCiudadano> buscarPorCiudadOEnfermedad(String ciudad, String enfermedad) {
-        return rR.buscarPorCiudadOEnfermedad(ciudad, enfermedad);
+    public List<ReporteCiudadano> buscarPorCiudadOEnfermedad(String cuidad, String enfermedad) {
+        return rR.buscarPorCiudadOEnfermedad(cuidad, enfermedad);
     }
 
 }

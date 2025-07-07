@@ -9,7 +9,7 @@ public class ReporteCiudadanoDTO {
 
     private int idReporte;
     private LocalDate fechaReporte;
-    private String ciudad;
+    private String cuidad;
     private Users users;
     private Enfermedad enfermedad;
 
@@ -29,12 +29,12 @@ public class ReporteCiudadanoDTO {
         this.fechaReporte = fechaReporte;
     }
 
-    public String getCiudad() {
-        return ciudad;
+    public String getCuidad() {
+        return cuidad;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public void setCuidad(String cuidad) {
+        this.cuidad = cuidad;
     }
 
     public Users getUsers() {

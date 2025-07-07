@@ -11,8 +11,8 @@ public class ReporteCiudadano {
     private int idReporte;
     @Column(name="fechaReporte",nullable = false)
     private LocalDate fechaReporte;
-    @Column(name="ciudad",nullable = false,length = 100)
-    private String ciudad;
+    @Column(name="cuidad",nullable = false,length = 100)
+    private String cuidad;
 
     public ReporteCiudadano(){}
     //USAR ESTE user_id PARA EL FK
@@ -27,7 +27,7 @@ public class ReporteCiudadano {
     public ReporteCiudadano(int idReporte, LocalDate fechaReporte, String cuidad, Users users, Enfermedad enfermedad) {
         this.idReporte = idReporte;
         this.fechaReporte = fechaReporte;
-        this.ciudad = cuidad;
+        this.cuidad = cuidad;
         this.users = users;
         this.enfermedad = enfermedad;
     }
@@ -49,11 +49,11 @@ public class ReporteCiudadano {
     }
 
     public String getCuidad() {
-        return ciudad;
+        return cuidad;
     }
 
     public void setCuidad(String cuidad) {
-        this.ciudad = cuidad;
+        this.cuidad = cuidad;
     }
 
     public Users getUsers() {
