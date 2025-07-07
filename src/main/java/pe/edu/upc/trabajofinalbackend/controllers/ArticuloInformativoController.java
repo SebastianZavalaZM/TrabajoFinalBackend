@@ -20,7 +20,7 @@ public class ArticuloInformativoController {
     @Autowired
     private IArticuloInformativoService aS;
 
-    @GetMapping
+    @GetMapping("/listas")
     public List<ArticuloInformativoDTO> listar(){
 
         return aS.list().stream().map(x->{
@@ -28,7 +28,7 @@ public class ArticuloInformativoController {
             return m.map(x, ArticuloInformativoDTO.class);
         }).collect(Collectors.toList());
     }
-    @PostMapping
+    @PostMapping("/registra")
     public void insertar(@RequestBody ArticuloInformativoDTO dto){
         ModelMapper m = new ModelMapper();
         ArticuloInformativo ae = m.map(dto, ArticuloInformativo.class);

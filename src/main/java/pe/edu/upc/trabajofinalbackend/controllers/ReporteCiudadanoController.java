@@ -19,7 +19,7 @@ public class ReporteCiudadanoController {
     @Autowired
     private IReporteCiudadanoService rS;
 
-    @GetMapping
+    @GetMapping("/listas")
     public List<ReporteCiudadanoDTO> listar() {
         return rS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -27,7 +27,7 @@ public class ReporteCiudadanoController {
         }).collect(Collectors.toList());
     }
 
-    @PostMapping
+    @PostMapping("/registra")
     public void insertar(@RequestBody ReporteCiudadanoDTO dto) {
         ModelMapper m = new ModelMapper();
         ReporteCiudadano ae = m.map(dto, ReporteCiudadano.class);
