@@ -2,16 +2,16 @@ package pe.edu.upc.trabajofinalbackend.dtos;
 
 public class distribuciondesuscriptoresuruarioDTO {
 
-    private String name_susxription;
+    private String name_suscription;
     private int cantidad;
     private double porcentaje;
 
-    public String getName_susxription() {
-        return name_susxription;
+    public String getName_suscription() {
+        return name_suscription;
     }
 
-    public void setName_susxription(String name_susxription) {
-        this.name_susxription = name_susxription;
+    public void setName_suscription(String name_suscription) {
+        this.name_suscription = name_suscription;
     }
 
     public int getCantidad() {

@@ -25,19 +25,19 @@ public interface IUserRepository extends JpaRepository<Users, Integer> {
 
 
     @Query( value = "SELECT u.username, u.correo,\n" +
-            "  COUNT(m.idmapacalor) AS cantidad_registros,\n" +
-            "  AVG(m.concentraciondecalor) AS promedio_concentracion\n" +
+            " COUNT(m.idmapacalor) AS cantidad_registros,\n" +
+            " AVG(m.concentraciondecalor) AS promedio_concentracion\n" +
             " FROM users u\n" +
-            " JOIN MapaCalor m ON u.id_users = m.id_users\n" +
+            " JOIN MapaCalor m ON u.id_users = m.users_id\n" +
             " GROUP BY u.username, u.correo;", nativeQuery = true)
     List<String[]> estadisticasporusuariocalor();
 
 
     @Query(value = "SELECT ts.name_suscription,\n" +
-            "    COUNT(ts.id_suscription) AS cantidad,\n" +
-            "    COUNT(ts.id_suscription) * 100.0 / (SELECT COUNT(*) FROM users) AS porcentaje\n" +
+            " COUNT(ts.id_suscription) AS cantidad,\n" +
+            " COUNT(ts.id_suscription) * 100.0 / (SELECT COUNT(*) FROM users) AS porcentaje\n" +
             " FROM users u\n" +
-            " LEFT JOIN suscription ts ON u.id_users = ts.id_users\n" +
+            " LEFT JOIN suscription ts ON u.id_users = ts.users_id\n" +
             " GROUP BY ts.name_suscription;", nativeQuery = true)
     List<String[]> distribuciondesuscriptoresuruario();
 }

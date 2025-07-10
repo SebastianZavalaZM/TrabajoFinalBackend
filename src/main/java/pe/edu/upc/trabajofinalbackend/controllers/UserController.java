@@ -97,7 +97,7 @@ public class UserController {
         List<distribuciondesuscriptoresuruarioDTO> dtoLista = new ArrayList<>();
         for (String[] columna : filaLista) {
             distribuciondesuscriptoresuruarioDTO dto = new distribuciondesuscriptoresuruarioDTO();
-            dto.setName_susxription(columna[0]);
+            dto.setName_suscription(columna[0]);
             dto.setCantidad(Integer.parseInt(columna[1]));
             dto.setPorcentaje(Double.parseDouble(columna[2]));
             dtoLista.add(dto);
